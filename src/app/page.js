@@ -1,113 +1,234 @@
-import Image from "next/image";
+import Container from '@/components/Container'
+import Link from 'next/link'
+import React from 'react'
+import { GoTag } from "react-icons/go";
+import { FaPhone, FaStar, FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
+import { FcApproval, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcSmartphoneTablet } from "react-icons/fc";
 
-export default function Home() {
+const Product = ({title, description, example, contactURL}) => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className='basis-full sm:basis-6/12 md:basis-5/12 xl:basis-3/12 overflow-hidden group/pelayanan relative grid grid-cols-1 content-between border border-pink-900 bg-gradient-to-b from-zinc-900 to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/50 p-6'>
+      <div>
+        <h6 className='mb-2 text-pink-500 font-semibold'>{title}</h6>
+        <p className='mb-2 text-sm'>{description}</p>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div>
+        <span className='text-pink-500 text-sm font-medium'>Contoh :</span>
+        <p className='text-sm'>{example}</p>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      <Link href={`https://api.whatsapp.com/send?phone=6285737578780&text=${contactURL}`} target='_blank' className='block group-hover/pelayanan:-bottom-0 absolute -bottom-8 start-1/2 -translate-x-1/2 bg-gradient-to-b from-green-900 to-green-700 text-white text-nowrap rounded-t border-t-4 border-pink-500 shadow-xl shadow-black px-6 py-1 transition-all duration-500'>
+        <p className='text-center'><FaPhone className='inline me-1 mb-0.5' /> Hubungi Sekarang</p>
+      </Link>
+      <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
+      <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
+      <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+    </div>
+  )
 }
+
+function page() {
+
+  const landingPageTextForWhatsapp = "Halo%20Ashura%20Bali%2C%20saya%20tertarik%20untuk%20membuat%20website%20*Landing%20Page*.%20Bisakah%20Anda%20membantu%20saya%3F";
+  const companyProfileTextForWhatsapp = "Halo%20Ashura%20Bali%2C%20saya%20tertarik%20untuk%20membuat%20website%20*Company%20Profile*.%20Bisakah%20Anda%20membantu%20saya%3F";
+  const eCommerceTextForWhatsapp = "Halo%20Ashura%20Bali%2C%20saya%20tertarik%20untuk%20membuat%20website%20*E-commerce*.%20Bisakah%20Anda%20membantu%20saya%3F";
+  const undanganTextForWhatsapp = "Halo%20Ashura%20Bali%2C%20saya%20tertarik%20untuk%20membuat%20website%20*Undangan%20Online*.%20Bisakah%20Anda%20membantu%20saya%3F";
+  const CustomWebTextForWhatsapp = "Halo%20Ashura%20Bali%2C%20saya%20tertarik%20untuk%20membuat%20*Website%20Custom*.%20Bisakah%20Anda%20membantu%20saya%3F";
+
+  return (
+    <>
+    <header className='border-b border-zinc-700'>
+      <Container>
+        <div className='flex justify-between items-center py-3'>
+          <Link href="/" className='text-xl font-bold bg-clip-text bg-gradient-to-b text-transparent from-white to-zinc-400 from-[30%] to-[70%]'><img src="/icon.png" alt="Ashura Logo" width={32} height={32} className='inline me-1 mb-0.5'/> Ashura Bali</Link>
+          <ul className='hidden lg:flex items-center gap-4'>
+            <li><Link href="/" className='text-primary'>Beranda</Link></li>
+            <li><Link href="/" className='text-zinc-400 hover:text-white'>Daily</Link></li>
+            <li><Link href="/" className='text-zinc-400 hover:text-white'>Product</Link></li>
+            <li><Link href="/" className='text-zinc-400 hover:text-white'>About</Link></li>
+            <li><Link href="/" className='text-zinc-400 hover:text-white'>Setting</Link></li>
+          </ul>
+        </div>
+      </Container>
+    </header>
+    
+    <Container overflow="hidden">
+      <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover mt-12">
+      <div className='bg-gradient-radial from-pink-900/25 from-[0%] to-black/0 to-[70%] absolute start-32 top-64 w-96 h-96'/>
+      <div className='bg-gradient-radial from-pink-900/25 from-[0%] to-black/0 to-[70%] absolute end-48 top-0 w-96 h-96'/>
+        <div className="flex flex-col justify-center items-center text-center pt-24">
+          <div className='relative max-w-4xl'>
+            <FaStar className='animate-custom-3 absolute start-0 top-0 w-4 h-4 text-pink-500'/>
+            <FaStar className='animate-custom-4 absolute start-6 top-12 w-3 h-3 text-pink-500'/>
+            <FaStar className='animate-custom-5 absolute start-12 top-4 w-2 h-2 text-pink-500'/>
+            <FaStar className='animate-custom-3 absolute end-12 -bottom-12 w-4 h-4 text-pink-500'/>
+            <FaStar className='animate-custom-4 absolute end-0 bottom-20 w-5 h-5 text-pink-500'/>
+            <FaStar className='animate-custom-5 absolute -end-4 bottom-4 w-2 h-2 text-pink-500'/>
+            <FaStar className='animate-custom-3 absolute end-1/4 top-0 w-3 h-3 text-pink-500'/>
+            <h1 className='mb-8 text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5'/> Jasa Website di Bali</h1>
+            <p className='mb-8 text-zinc-200 leading-tight text-4xl font-medium'>Mewujudkan Website Impian Anda dengan Berbagai Fitur dan Desain Menarik</p>
+            <p>Kami adalah tim yang berpengalaman dalam pembuatan website dengan berbagai fitur dan desain yang menarik. Kami menawarkan layanan dengan harga terjangkau tanpa mengurangi kualitas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className='lg:bg-[url(/image/border-t-c.svg)] bg-cover bg-top mt-16'>
+        <div className='pt-24'>
+          <h2 className='mb-8 text-center text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5'/> Pelayanan Kami</h2>
+          <div className='flex flex-row flex-wrap justify-center gap-4'>
+            <Product 
+              title="Landing Page"
+              description="Buat kesan pertama yang tak terlupakan dengan landing page yang dirancang khusus untuk meningkatkan konversi dan menarik perhatian audiens Anda. Kami fokus pada desain yang bersih, copywriting yang persuasif, dan call-to-action yang kuat."
+              example="Landing page CV, portofolio, blog pribadi, promosi produk"
+              contactURL={landingPageTextForWhatsapp}
+            />
+            <Product 
+              title="Company Profile"
+              description="Tampilkan identitas bisnis Anda dengan company profile yang profesional dan menarik. Kami membantu menyusun dan mendesain profil perusahaan yang mencerminkan visi, misi, dan nilai-nilai bisnis Anda secara efektif."
+              example="Profil perusahaan, brosur digital perusahaan, presentasi bisnis."
+              contactURL={companyProfileTextForWhatsapp}
+            />
+            <Product 
+              title="E-commerce"
+              description="Kami membangun toko online yang aman dan mudah digunakan, lengkap dengan fitur-fitur canggih yang mendukung penjualan dan manajemen produk Anda secara efektif."
+              example="Toko online fashion, toko elektronik, toko perlengkapan rumah tangga."
+              contactURL={eCommerceTextForWhatsapp}
+            />
+            <Product 
+              title="Undangan Online"
+              description="Buat momen istimewa Anda lebih berkesan dengan undangan online yang elegan dan informatif. Kami merancang undangan digital yang menarik dan interaktif untuk berbagai acara, memudahkan Anda dalam berbagi undangan dan mengelola daftar tamu."
+              example="Undangan pernikahan, undangan ulang tahun, undangan acara perusahaan, undangan pesta."
+              contactURL={undanganTextForWhatsapp}
+            />
+            <Product 
+              title="Pembuatan Website Custom"
+              description="Dapatkan website yang sepenuhnya disesuaikan dengan kebutuhan dan visi bisnis Anda. Kami merancang dan mengembangkan website yang unik, menampilkan karakter dan nilai bisnis Anda secara menyeluruh."
+              example="Website perusahaan, website pribadi, website layanan profesional."
+              contactURL={CustomWebTextForWhatsapp}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="relative flex flex-col justify-center items-center text-center mt-12">
+        <img src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-1 absolute start-0 lg:start-24 top-0'/>
+        <img src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-2 absolute end-0 lg:end-24 top-64 lg:top-40'/>
+        <div className='relative max-w-xl mt-20'>
+          <FaStar className='animate-custom-3 absolute -start-6 top-0 w-5 h-5 text-pink-500'/>
+          <FaStar className='animate-custom-4 absolute start-3 top-12 w-4 h-4 text-pink-500'/>
+          <FaStar className='animate-custom-5 absolute -start-3 top-20 w-3 h-3 text-pink-500'/>
+          <FaStar className='animate-custom-3 absolute end-0 bottom-4 w-4 h-4 text-pink-500'/>
+          <FaStar className='animate-custom-4 absolute -end-12 bottom-20 w-3 h-3 text-pink-500'/>
+          <FaStar className='animate-custom-5 absolute end-12 bottom-8 w-2 h-2 text-pink-500'/>
+          <FaStar className='animate-custom-3 absolute end-0 top-16 w-3 h-3 text-pink-500'/>
+          <h3 className='mb-8 text-zinc-200 leading-tight text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3>
+          <p className='mb-8 italic'>" Dalam dunia digital, memiliki website penting. Ini adalah wajah bisnis Anda online yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. "</p>
+        </div>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-24'>
+          <div className='relative border border-pink-900 bg-gradient-to-b from-zinc-900 to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/50 p-6'>
+            <div>
+              <h6 className='mb-4 text-white font-semibold'><FaCircleXmark className='inline me-1 mb-0.5 text-red-500'/> Tanpa adanya website</h6>
+              <ul className='ps-4 list-disc text-start text-sm'>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Terbatasnya Jangkauan</h6>
+                  <p>Bisnis hanya bisa mencapai pelanggan potensial di lingkup lokal atau melalui saluran offline seperti brosur, iklan cetak, atau rekomendasi langsung.</p>
+                </li>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Keterbatasan Informasi</h6>
+                  <p>Informasi tentang produk atau layanan mungkin terbatas dan tidak mudah diakses oleh calon pelanggan. Informasi ini biasanya hanya tersedia melalui komunikasi langsung atau melalui materi cetak terbatas.</p>
+                </li>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Kurangnya Keterpercayaan</h6>
+                  <p>Tanpa website, bisnis mungkin terlihat kurang profesional atau kurang bereputasi karena kurangnya presensi online yang menjamin keberadaannya.</p>
+                </li>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Keterbatasan Waktu</h6>
+                  <p>Komunikasi dengan pelanggan potensial terbatas pada jam kerja atau waktu ketika bisnis terbuka.</p>
+                </li>
+              </ul>
+            </div>
+            <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
+            <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
+            <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+          </div>
+          <div className='relative border border-pink-900 bg-gradient-to-b from-zinc-900 to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/50 p-6'>
+            <div>
+              <h6 className='mb-4 text-white font-semibold'><FaCircleCheck className='inline me-1 mb-0.5 text-green-500'/> Dengan adanya website</h6>
+              <ul className='ps-4 list-disc text-start text-sm'>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Jangkauan yang Luas</h6>
+                  <p>Dengan adanya website, bisnis dapat mencapai pelanggan potensial di seluruh dunia secara online, meningkatkan peluang untuk pertumbuhan dan ekspansi.</p>
+                </li>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Informasi yang Lengkap dan Mudah Diakses</h6>
+                  <p>Website memberikan platform untuk mempresentasikan informasi lengkap tentang produk atau layanan, portofolio, testimoni pelanggan, dan lainnya secara terperinci dan mudah diakses.</p>
+                </li>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Kepercayaan dan Reputasi yang Ditingkatkan</h6>
+                  <p>Prasensi online yang profesional dengan website dapat meningkatkan kepercayaan pelanggan dan menciptakan kesan bahwa bisnis tersebut lebih kredibel dan dapat diandalkan.</p>
+                </li>
+                <li className='mb-2'>
+                  <h6 className='mb-1 text-pink-500 font-semibold'>Ketersediaan 24/7</h6>
+                  <p>Website memungkinkan pelanggan untuk mengakses informasi dan melakukan interaksi dengan bisnis kapan pun mereka mau, bahkan di luar jam kerja biasa.</p>
+                </li>
+              </ul>
+            </div>
+            <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
+            <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
+            <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+          </div>
+        </div>
+      </section>
+
+      <section className='xl:bg-[url(/image/border-all-1.svg)] bg-contain bg-center bg-no-repeat mt-24 py-32'>
+      <h3 className='mb-12 text-center text-zinc-200 leading-tight text-4xl font-medium'>Mengapa harus memilih Kami?</h3>
+        <div className='flex justify-center items-center'>
+          <ul className='grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl md:gap-4'>
+            <li className='text-center'>
+              <FcApproval className='mb-4 inline-block w-16 h-16'/>
+              <h6 className='mb-2 text-lg text-white font-medium'>Pengalaman yang Terpercaya</h6>
+              <p className='text-sm'>Kami telah membantu banyak klien dalam mencapai tujuan online mereka, dengan pengalaman yang terbukti dan hasil yang memuaskan.</p>
+            </li>
+            <li className='text-center'>
+              <FcMultipleDevices className='mb-4 inline-block w-16 h-16'/>
+              <h6 className='mb-2 text-lg text-white font-medium'>Desain Kreatif dan Responsif</h6>
+              <p className='text-sm'>Tim desain kami terampil dalam menciptakan website yang menarik dan responsif, memastikan tampilan yang optimal di berbagai perangkat.</p>
+            </li>
+            <li className='text-center'>
+              <FcFaq className='mb-4 inline-block w-16 h-16'/>
+              <h6 className='mb-2 text-lg text-white font-medium'>Dukungan Pelanggan</h6>
+              <p className='text-sm'>Kami selalu siap memberikan dukungan pelanggan terbaik. Tim kami siap membantu Anda sepanjang proses, dari konsultasi awal hingga peluncuran website.</p>
+            </li>
+            <li className='text-center'>
+              <FcMoneyTransfer className='mb-4 inline-block w-16 h-16'/>
+              <h6 className='mb-2 text-lg text-white font-medium'>Harga Terjangkau</h6>
+              <p className='text-sm'>Kami menawarkan layanan berkualitas dengan harga yang terjangkau, sehingga Anda mendapatkan nilai terbaik untuk investasi Anda.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </Container>
+    </>
+  )
+}
+
+export default page

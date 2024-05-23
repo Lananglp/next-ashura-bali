@@ -2,7 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+::-webkit-scrollbar {
+  @apply h-1 w-1;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900 rounded-lg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-pink-500 rounded-lg;
+}
+
+body {
+  /* @apply bg-zinc-200 text-zinc-600;  */
+  @apply bg-zinc-900 text-zinc-300;
+}
+
+.text-primary {
+  @apply text-pink-500;
+}
+
+.animate-custom-1 {
+  animation: animate-custom-1 2s infinite alternate forwards;
+}
+
+@keyframes animate-custom-1 {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(5deg) scale(0.9);
+  }
+}
+
+.animate-custom-2 {
+  animation: animate-custom-2 2s 0.5s infinite alternate forwards;
+}
+
+@keyframes animate-custom-2 {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(-5deg) scale(0.9);
+  }
+}
+
+.animate-custom-3 {
+  animation: animate-custom-3 2s infinite alternate forwards;
+}
+
+@keyframes animate-custom-3 {
+  0% {
+    transform: translateY(0rem) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translateY(1rem) rotate(90deg) scale(1.5);
+  }
+}
+
+.animate-custom-4 {
+  animation: animate-custom-4 2s 0.5s infinite alternate forwards;
+}
+
+@keyframes animate-custom-4 {
+  0% {
+    transform: translateY(0rem) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translateY(1rem) rotate(90deg) scale(1.5);
+  }
+}
+
+.animate-custom-5 {
+  animation: animate-custom-5 2s 1s infinite alternate forwards;
+}
+
+@keyframes animate-custom-5 {
+  0% {
+    transform: translateY(0rem) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translateY(1rem) rotate(90deg) scale(1.5);
+  }
+}
+
+/* .test {
+  color: #be185d;
+} */
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +119,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
