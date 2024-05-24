@@ -6,6 +6,7 @@ import { FaPhone, FaStar, FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
 import { FcApproval, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcSmartphoneTablet } from "react-icons/fc";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
+import PriceList from '@/components/PriceList';
 
 const Product = ({ title, description, example, contactURL }) => {
   return (
@@ -209,6 +210,18 @@ function page() {
           </div>
         </section>
 
+        <PriceList/>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
       </Container>
     </>
