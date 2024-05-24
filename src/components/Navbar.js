@@ -5,6 +5,7 @@ import Container from './Container'
 import { FaBars } from "react-icons/fa6";
 import { MdDoubleArrow } from "react-icons/md";
 import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 
 function Navbar() {
 
@@ -38,7 +39,7 @@ function Navbar() {
             <header className='sticky z-50 top-0 border-b border-zinc-300 dark:border-zinc-700 backdrop-blur-sm'>
                 <Container>
                     <div className='flex justify-between items-center py-3'>
-                        <Link href="/" className='text-xl font-bold bg-clip-text bg-gradient-to-b text-transparent from-zinc-500 dark:from-white to-zinc-600 dark:to-zinc-400 from-[30%] to-[70%]'><img src="/icon.png" alt="Ashura Logo" width={32} height={32} className='inline me-1 mb-0.5' /> Ashura Bali</Link>
+                        <Link href="/" className='text-xl font-bold bg-clip-text bg-gradient-to-b text-transparent from-zinc-500 dark:from-white to-zinc-600 dark:to-zinc-400 from-[30%] to-[70%]'><Image src="/icon.png" alt="Ashura Logo" width={64} height={64} className='inline me-1 mb-0.5 h-8 w-8' /> Ashura Bali</Link>
                         <ul className='hidden lg:flex items-center gap-4'>
                             <li><Link href="/" className='text-primary'>Beranda</Link></li>
                             <li><Link href="/" className='text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 hover:dark:text-white'>Daily</Link></li>

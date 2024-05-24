@@ -5,6 +5,7 @@ import { GoTag } from "react-icons/go";
 import { FaPhone, FaStar, FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
 import { FcApproval, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcSmartphoneTablet } from "react-icons/fc";
 import Navbar from '@/components/Navbar';
+import Image from 'next/image';
 
 const Product = ({ title, description, example, contactURL }) => {
   return (
@@ -102,8 +103,8 @@ function page() {
         </section>
 
         <section className="relative flex flex-col justify-center items-center text-center mt-12">
-          <img src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-1 absolute start-0 lg:start-24 top-0 opacity-50 lg:opacity-100' />
-          <img src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-2 absolute end-0 lg:end-24 top-64 lg:top-40 opacity-50 lg:opacity-100' />
+          <Image src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-1 absolute start-0 lg:start-24 top-0 opacity-50 lg:opacity-100' />
+          <Image src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-2 absolute end-0 lg:end-24 top-64 lg:top-40 opacity-50 lg:opacity-100' />
           <div className='relative max-w-xl mt-20'>
             <FaStar className='animate-custom-3 absolute -start-6 top-0 w-5 h-5 text-pink-500' />
             <FaStar className='animate-custom-4 absolute start-3 top-12 w-4 h-4 text-pink-500' />
