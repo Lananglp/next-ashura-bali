@@ -22,7 +22,7 @@ function PriceList() {
                         description="Cocok untuk pemula &amp; percobaan pertama anda."
                         price="150.000"
                         priceType="Sekali bayar"
-                        priceCategori="Biasa"
+                        priceCategori="biasa"
                         onClick={() => alert("Bayar...")}
                     >
                         <FeaturePriceList type="option">
@@ -68,7 +68,7 @@ function PriceList() {
                         description="Cocok untuk pemula &amp; percobaan pertama anda."
                         price="600.000"
                         priceType="Sekali bayar"
-                        priceCategori="Premium"
+                        priceCategori="premium"
                         onClick={() => alert("Bayar...")}
                     >
                         <FeaturePriceList type="option">
@@ -114,7 +114,7 @@ function PriceList() {
                         description="Cocok untuk pemula &amp; percobaan pertama anda."
                         price="1.800.000"
                         priceType="Sekali bayar"
-                        priceCategori="Master"
+                        priceCategori="master"
                         onClick={() => alert("Bayar...")}
                     >
                         <FeaturePriceList type="option">

@@ -14,9 +14,9 @@ export const ItemPriceList = ({badge, title, description, price, priceType, pric
         <div className="relative flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 border border-gray-100 dark:border-pink-900 xl:p-8 dark:text-white bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50">
             <div className='absolute top-0 end-0 bg-pink-700 rounded-tr-lg rounded-bl-lg text-sm px-4 py-0.5'>{badge}</div>
             <h3 className={`my-4 text-2xl font-semibold 
-                ${priceCategori === "Biasa" ? 'text-zinc-200 dark:text-white' : 'text-zinc-200 dark:text-white'}
-                ${priceCategori === "Premium" ? 'text-blue-600 dark:text-blue-300' : 'text-zinc-200 dark:text-white'}
-                ${priceCategori === "Master" ? 'text-orange-600 dark:text-orange-400' : 'text-zinc-200 dark:text-white'}
+                ${priceCategori === "biasa" ? 'text-zinc-200 dark:text-white' : 'text-zinc-200 dark:text-white'}
+                ${priceCategori === "premium" ? 'text-blue-600 dark:text-blue-300' : 'text-zinc-200 dark:text-white'}
+                ${priceCategori === "master" ? 'text-orange-600 dark:text-orange-400' : 'text-zinc-200 dark:text-white'}
             `}>
                 {title}
             </h3>
