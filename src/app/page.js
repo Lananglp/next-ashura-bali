@@ -114,7 +114,7 @@ function page() {
             <FaStar className='animate-custom-5 absolute end-12 bottom-8 w-2 h-2 text-pink-500' />
             <FaStar className='animate-custom-3 absolute end-0 top-16 w-3 h-3 text-pink-500' />
             <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3>
-            <p className='mb-8 italic'>" Dalam dunia digital, memiliki website itu penting. Website adalah wajah bisnis online Anda yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. "</p>
+            <p className='mb-8 italic'>&quot; Dalam dunia digital, memiliki website itu penting. Website adalah wajah bisnis online Anda yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. &quot;</p>
           </div>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-24'>
             <div className='relative border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50 p-6'>
