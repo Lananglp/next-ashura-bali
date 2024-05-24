@@ -3,7 +3,7 @@ import { FaCheck, FaCloud, FaXmark } from 'react-icons/fa6'
 
 function CardPriceList({children}) {
   return (
-    <div className="px-4 mx-auto max-w-screen-xl lg:px-6">
+    <div className="mx-auto max-w-screen-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">{children}</div>
     </div>
   )

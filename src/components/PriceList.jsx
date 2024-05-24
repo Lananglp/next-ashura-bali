@@ -188,24 +188,22 @@ function PriceList() {
     ];
 
   return (
-      <section>
-          <Container>
-              <div className='border-b border-zinc-700 flex justify-center items-center mb-8'>
-                  {items.map((item, index) => (
-                      <button key={index} aria-label={`button${index + 1}`} onClick={() => toggleContent(index)} type='button' className={`${activeIndex === index ? 'border-pink-500 text-pink-500' : 'border-transparent text-zinc-300'} hover:bg-zinc-800 font-medium border-b-2 p-4`}>
-                          {item.label}
-                      </button>
-                  ))}
-              </div>
-              {items.map((item, index) => (
-                  activeIndex === index && (
-                      <div key={index} aria-label={`content${index + 1}`} className=''>
-                          {item.content}
-                      </div>
-                  )
-              ))}
-          </Container>
-      </section>
+      <div>
+            <div className='border-b border-zinc-700 flex justify-center items-center mb-8'>
+                {items.map((item, index) => (
+                    <button key={index} aria-label={`button${index + 1}`} onClick={() => toggleContent(index)} type='button' className={`${activeIndex === index ? 'border-pink-500 text-pink-500' : 'border-transparent text-zinc-300'} hover:bg-zinc-800 font-medium border-b-2 p-4`}>
+                        {item.label}
+                    </button>
+                ))}
+            </div>
+            {items.map((item, index) => (
+                activeIndex === index && (
+                    <div key={index} aria-label={`content${index + 1}`} className=''>
+                        {item.content}
+                    </div>
+                )
+            ))}
+      </div>
   )
 }
 
