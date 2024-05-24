@@ -17,6 +17,7 @@ function PriceList() {
             label: 'Lading Page', content: (
                 <CardPriceList>
                     <ItemPriceList
+                        badge="Landing Page"
                         title="Paket Biasa"
                         description="Cocok untuk pemula &amp; percobaan pertama anda."
                         price="150.000"
@@ -62,6 +63,7 @@ function PriceList() {
                         </FeaturePriceList>
                     </ItemPriceList>
                     <ItemPriceList
+                        badge="Landing Page"
                         title="Paket Premium"
                         description="Cocok untuk pemula &amp; percobaan pertama anda."
                         price="600.000"
@@ -107,6 +109,7 @@ function PriceList() {
                         </FeaturePriceList>
                     </ItemPriceList>
                     <ItemPriceList
+                        badge="Landing Page"
                         title="Paket Master"
                         description="Cocok untuk pemula &amp; percobaan pertama anda."
                         price="1.800.000"
@@ -185,11 +188,11 @@ function PriceList() {
     ];
 
   return (
-      <section className='mt-24'>
+      <section>
           <Container>
-              <div className='border-b border-zinc-700 flex justify-center items-center gap-4 mb-8'>
+              <div className='border-b border-zinc-700 flex justify-center items-center mb-8'>
                   {items.map((item, index) => (
-                      <button key={index} aria-label={`button${index + 1}`} onClick={() => toggleContent(index)} type='button' className={`${activeIndex === index ? 'border-pink-500 text-pink-500' : 'border-transparent text-zinc-300'} font-medium border-b-2 p-4`}>
+                      <button key={index} aria-label={`button${index + 1}`} onClick={() => toggleContent(index)} type='button' className={`${activeIndex === index ? 'border-pink-500 text-pink-500' : 'border-transparent text-zinc-300'} hover:bg-zinc-800 font-medium border-b-2 p-4`}>
                           {item.label}
                       </button>
                   ))}

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { GoTag } from "react-icons/go";
 import { FaPhone, FaStar, FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
-import { FcApproval, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcSmartphoneTablet } from "react-icons/fc";
+import { FcApproval, FcFaq, FcMoneyTransfer, FcMultipleDevices } from "react-icons/fc";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import PriceList from '@/components/PriceList';
@@ -210,7 +210,10 @@ function page() {
           </div>
         </section>
 
-        <PriceList/>
+        <section>
+          <h3 className='mt-24 mb-12 text-center text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Daftar Harga Layanan Pembuatan Website kami</h3>
+          <PriceList/>
+        </section>
 
         <br />
         <br />
