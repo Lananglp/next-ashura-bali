@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import { FaCheck, FaXmark, FaPen, FaPlus, FaTrash, FaCircleExclamation, FaWhatsapp } from 'react-icons/fa6';
+import { FaCheck, FaXmark, FaPen, FaPlus, FaTrash, FaCircleExclamation, FaWhatsapp, FaCircleCheck } from 'react-icons/fa6';
 import { IoMdSettings } from "react-icons/io";
 import { formatRupiah } from '@/helper/Helper';
+import Link from 'next/link';
 
 function PriceList() {
 
@@ -14,7 +15,7 @@ function PriceList() {
 
     const [checkHosting, setCheckHosting] = useState(true);
     const [checkDomain, setCheckDomain] = useState(true);
-    const [checkAdmin, setCheckAdmin] = useState(true);
+    const [checkAdmin, setCheckAdmin] = useState(false);
     const addRef = useRef(null);
     const editRefs = useRef([]);
     const buttonAddRef = useRef(null);
@@ -23,17 +24,69 @@ function PriceList() {
     const [newFeature, setNewFeature] = useState('');
     const [editingIndex, setEditingIndex] = useState(null);
     const [editingValue, setEditingValue] = useState('');
-
-    const hargaLandingPage = 2000000;
+    // deklarasi harga - harga
+    const hargaWebsite = 2000000;
+    const hargaAdminDashboard = checkAdmin ? 1200000 : 0;
     const hargaHosting = checkHosting ? 300000 : 0;
     const hargaDomain = checkDomain ? 300000 : 0;
-    const hargaFeature = 100000;
-    const hargaTotal = hargaLandingPage + (hargaFeature * parseInt(features.length));
-    const hargaAwal = hargaLandingPage + hargaDomain + hargaHosting + (hargaFeature * parseInt(features.length));
-    const hargaPerBulan = (hargaLandingPage * 0.60) + hargaHosting + (hargaFeature * parseInt(features.length));
-    const hargaPerTahun = (hargaLandingPage * 0.60) + hargaDomain + hargaHosting + (hargaFeature * parseInt(features.length));
-    const hargaTahun = hargaTotal * 12 * 0.30;
-    const hargaLifetime = hargaTotal * 6.30;
+    const hargaFitur = 100000;
+    const potonganHargaPerBulan = 0.12; // -88% potongan
+    const potonganhargaPerTahun = 0.40; // -60% potongan
+    const totalHargaFitur = hargaFitur * parseInt(features.length);
+    // rumus fisika dan geografi dan pengendali api dan air
+    const hargaTotal = hargaWebsite + hargaAdminDashboard + totalHargaFitur;
+    const hargaAwal = hargaWebsite + hargaAdminDashboard + totalHargaFitur + hargaHosting + hargaDomain;
+    const hargaPerBulan = (hargaWebsite + hargaAdminDashboard + totalHargaFitur) * potonganHargaPerBulan + hargaHosting;
+    const hargaPerTahun = (hargaWebsite + hargaAdminDashboard + totalHargaFitur) * potonganHargaPerBulan + hargaHosting + hargaDomain;
+    const hargaTahun = (hargaPerBulan * 12) * potonganhargaPerTahun + hargaDomain; // 0.15
+    // const hargaLifetime = (hargaPerBulan * 12);
+    const hargaLifetime = (hargaWebsite + hargaAdminDashboard + totalHargaFitur) * potonganHargaPerBulan * 12;
+    const akumulasiHemat = (hargaPerBulan * 12) + hargaDomain;
+    const selisihHargaPerTahun = akumulasiHemat - hargaTahun;
+    // const selisihHargaPerTahun = 0;
+
+    const textDecode = `
+Nama lengkap/Perusahaan: *PT.Ashura Bali*
+Jenis website: *Website Marketing*
+
+- Desain simple, elegan & modern
+- Responsive & compatibel semua perangkat
+- Pengoptimalan CEO (search Google)
+- Teknologi: Next Js & Laravel
+- Gratis maintenance: 1 tahun
+- Hosting website
+- Domain (.com / .id / lainnya)
+- Admin Panel: Untuk memanajemen konten
+- Database system security
+- Fitur dalam website: ${features.length > 0 ? features.map((fitur, index) => `${index + 1}. ${fitur.name}`).join(', ') : 'Tidak ada fitur'}
+
+Harga website:
+*${formatRupiah(hargaTotal)}*
+
+Biaya hosting:
+*${formatRupiah(hargaHosting)} /bulan*
+
+Biaya domain:
+*${formatRupiah(hargaDomain)} /tahun*
+
+Total pembayaran pertama:
+*${formatRupiah(hargaAwal)}*
+
+Pembayaran akhir bulan:
+*${formatRupiah(hargaPerBulan)} /bulan*
+
+Pembayaran akhir tahun:
+*${formatRupiah(hargaPerTahun)} /tahun*
+
+Opsi lain pembayaran:
+*${formatRupiah(hargaTahun)} /tahun*
+(Sudah termasuk biaya hosting dan domain.)
+
+*${formatRupiah(hargaLifetime)} /lifetime*
+(Belum termasuk biaya hosting dan domain.)
+    `;
+
+    const textForWhatsapp = encodeURIComponent(textDecode.trim());
 
     const toggleCheck = (type) => {
         if (type === "hosting") {
@@ -174,7 +227,7 @@ function PriceList() {
                                 </li>
                                 <li>
                                     <label className="inline-flex items-center cursor-pointer">
-                                        <input onClick={() => toggleCheck("admin")} type="checkbox" defaultValue className="sr-only peer" defaultChecked/>
+                                        <input onClick={() => toggleCheck("admin")} type="checkbox" defaultValue className="sr-only peer"/>
                                         <div className="relative w-7 h-3 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                                         <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Admin Panel: <span className="font-semibold ms-1">Untuk memanajemen konten</span></span>
                                     </label>
@@ -266,7 +319,7 @@ function PriceList() {
                                             }
                                             <p className='my-2 text-xs'>Apa yang dimaksud dengan fitur? merupakan fitur yang ada di dalam website tersebut, sesuatu yang berkaitan dengan database bisa dikatakan fitur, sebagai contoh: komentar, dapat mengubah content gambar, menampilkan data pengunjung website.</p>
                                             <p className='mt-2 text-xs'>Belum memahami cara melakukan pemesanan? hubungi kami dengan menekan tombol dibawah ini:</p>
-                                            <button type="button" className='mt-2 px-4 py-1 bg-green-700 hover:bg-green-800 text-white rounded'><FaWhatsapp className='inline me-1 mb-0.5'/> Hubungi Kami</button>
+                                            <Link href={`https://api.whatsapp.com/send?phone=6285737578780&text=${textForWhatsapp}`} target='_blank' type="button" className='inline-block mt-2 px-4 py-1 bg-green-700 hover:bg-green-800 text-white rounded'><FaWhatsapp className='inline me-1 mb-0.5'/> Hubungi Kami</Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -275,7 +328,7 @@ function PriceList() {
                         <div className='basis-1/3 rounded-r-lg border-s border-pink-500 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950'>
                             <div className='sticky top-24 p-6'>
                                 <span className='text-sm'>Harga website:</span>
-                                <p className='mb-3 text-xl text-white'>{hargaLandingPage ? formatRupiah(hargaTotal) : formatRupiah(0)}</p>
+                                <p className='mb-3 text-xl text-white'>{hargaWebsite ? formatRupiah(hargaTotal) : formatRupiah(0)}</p>
                                 <span className='text-sm'>Biaya hosting:</span>
                                 <p className='mb-3 text-xl text-white'>{checkHosting ? formatRupiah(hargaHosting) : formatRupiah(0)} /bulan</p>
                                 <span className='text-sm'>Biaya domain:</span>
@@ -283,35 +336,39 @@ function PriceList() {
                                 <div className='my-6 border-b border-zinc-700'/>
                                 <p className='mb-2 text-center text-sm'>Total pembayaran pertama:</p>
                                 <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
-                                    <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaLandingPage ? formatRupiah(hargaAwal) : formatRupiah(0)}</span>
-                                    <span className="text-sm text-gray-500 dark:text-zinc-200">/bulan</span>
+                                    <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaWebsite ? formatRupiah(hargaAwal) : formatRupiah(0)}</span>
+                                    {/* <span className="text-sm text-gray-500 dark:text-zinc-200">/bulan</span> */}
                                 </button>
-                                <p className='my-2 text-center text-sm'>Pembayaran setiap bulan:</p>
+                                <p className='my-2 text-center text-sm'>Pembayaran akhir bulan:</p>
                                 <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
-                                    <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaLandingPage ? formatRupiah(hargaPerBulan) : formatRupiah(0)}</span>
+                                    <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaWebsite ? formatRupiah(hargaPerBulan) : formatRupiah(0)}</span>
                                     <span className="text-sm text-gray-500 dark:text-zinc-200">/bulan</span>
                                 </button>
                                 {checkDomain &&
                                     <>
-                                        <p className='my-2 text-center text-sm'>Pembayaran setiap tahun:</p>
+                                        <p className='my-2 text-center text-sm'>Pembayaran akhir tahun:</p>
                                         <button className="mb-3 w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
-                                            <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaLandingPage ? formatRupiah(hargaPerTahun) : formatRupiah(0)}</span>
+                                            <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaWebsite ? formatRupiah(hargaPerTahun) : formatRupiah(0)}</span>
                                             <span className="text-sm text-gray-500 dark:text-zinc-200">/tahun</span>
                                         </button>
                                     </>
                                 }
                                 <div className='my-6 border-b border-zinc-700'/>
                                 <p className='mb-2 text-center text-sm'>Opsi lain pembayaran:</p>
-                                <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
+                                <button className="mt-2 w-full relative text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                                     <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{formatRupiah(hargaTahun)}</span>
                                     <span className="text-sm text-gray-500 dark:text-zinc-200">/tahun</span>
+                                    <div className='absolute -top-2 -end-2 rotate-2 bg-yellow-400 text-black font-semibold rounded text-xs px-4 py-0.5'>
+                                        Hemat {formatRupiah(selisihHargaPerTahun)}
+                                    </div>
                                 </button>
+                                <p className='px-4 mt-4 text-center text-xs'><FaCircleCheck className='inline text-green-400 me-1 mb-0.5'/> Sudah termasuk biaya hosting dan domain.</p>
                                 <p className='my-2 text-center text-sm'>atau</p>
                                 <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                                     <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{formatRupiah(hargaLifetime)}</span>
                                     <span className="text-sm text-gray-500 dark:text-zinc-200">/lifetime</span>
                                 </button>
-                                <p className='px-4 mt-4 text-center text-xs'><FaCircleExclamation className='inline text-yellow-300 me-1 mb-0.5'/> Harga ini belum termasuk biaya hosting dan domain.</p>
+                                <p className='px-4 mt-4 text-center text-xs'><FaCircleExclamation className='inline text-yellow-300 me-1 mb-0.5'/> Belum termasuk biaya hosting dan domain.</p>
                             </div>
                         </div>
                     </div>
