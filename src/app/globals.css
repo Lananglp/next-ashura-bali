@@ -7,10 +7,10 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-900 rounded-lg;
+  @apply bg-zinc-800 rounded-lg;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-pink-500 rounded-lg;
+  @apply bg-gradient-to-b from-pink-900/0 via-pink-600 to-pink-900/0 rounded-lg;
 }
 
 body {
@@ -87,9 +87,21 @@ body {
   }
 }
 
-/* .test {
+.color-pink-400 {
+  color: #f472b6;
+}
+
+.color-pink-500 {
+  color: #ec4899;
+}
+
+.color-pink-700 {
   color: #be185d;
-} */
+}
+
+.color-pink-900 {
+  color: #831843;
+}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { GoTag } from "react-icons/go";
 import { FaPhone, FaStar, FaXmark, FaCheck } from "react-icons/fa6";
-import { FcApproval, FcFaq, FcMoneyTransfer, FcMultipleDevices } from "react-icons/fc";
+import { FcApproval, FcCommandLine, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcTimeline } from "react-icons/fc";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import PriceList from '@/components/PriceList';
@@ -51,7 +51,7 @@ function page() {
       <Navbar/>
 
       <Container overflow="hidden">
-        <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover mt-12">
+        <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover lg:mt-12">
           <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/25 from-[0%] to-transparent to-[70%] absolute start-32 top-64 w-96 h-96' />
           <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/25 from-[0%] to-transparent to-[70%] absolute end-48 top-0 w-96 h-96' />
           <div className="flex flex-col justify-center items-center text-center pt-24">
@@ -72,7 +72,7 @@ function page() {
           </div>
         </section>
 
-        <section className='lg:bg-[url(/image/border-t-c.svg)] bg-cover bg-top mt-16'>
+        <section className='lg:bg-[url(/image/border-t-c.svg)] bg-cover bg-top lg:mt-16'>
           <div className='pt-24'>
             <h2 className='mb-8 text-center text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Pelayanan Kami</h2>
             <div className='flex flex-row flex-wrap justify-center gap-4'>
@@ -181,10 +181,10 @@ function page() {
             <FaStar className='animate-custom-4 absolute -end-12 bottom-20 w-3 h-3 text-pink-500' />
             <FaStar className='animate-custom-5 absolute end-12 bottom-8 w-2 h-2 text-pink-500' />
             <FaStar className='animate-custom-3 absolute end-0 top-16 w-3 h-3 text-pink-500' />
-            <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3>
+            <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3>
             <p className='mb-8 italic'>&quot; Dalam dunia digital, memiliki website itu penting. Website adalah wajah bisnis online Anda yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. &quot;</p>
           </div>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-24'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 lg:mt-24'>
             <div className='relative border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50 p-6'>
               <div>
                 <h6 className='mb-4 text-zinc-700 dark:text-white font-semibold'><FaXmark className='inline h-5 w-5 me-1 mb-0.5 text-red-500' /> Tanpa adanya website</h6>
@@ -240,7 +240,7 @@ function page() {
           </div>
         </section>
 
-        <section className='relative xl:bg-[url(/image/border-all-2.svg)] bg-contain bg-center bg-no-repeat mt-24 p-24'>
+        <section className='relative xl:bg-[url(/image/border-all-2.svg)] bg-contain bg-center bg-no-repeat mt-8 lg:mt-24 p-8 xl:py-24'>
           <div className='absolute inset-0 mx-auto -z-10 max-w-3xl'>
             <FaStar className='animate-custom-3 absolute start-0 top-24 w-4 h-4 text-pink-500' />
             <FaStar className='animate-custom-4 absolute start-6 top-32 w-3 h-3 text-pink-500' />
@@ -270,7 +270,7 @@ function page() {
                     <p className='text-sm'>Kami selalu siap memberikan dukungan pelanggan terbaik. Tim kami siap membantu Anda sepanjang proses, dari konsultasi awal hingga peluncuran website.</p>
                   </li>
                   <li className='text-center'>
-                    <FcMoneyTransfer className='mb-4 inline-block w-16 h-16' />
+                    <FcCommandLine className='mb-4 inline-block w-16 h-16' />
                     <h6 className='mb-2 text-lg text-zinc-700 dark:text-white font-medium'>Teknologi Kualitas Tinggi</h6>
                     <p className='text-sm'>Kami menggunakan teknologi terkini dan terbaik dalam semua proyek kami. Dengan fokus pada inovasi dan pengembangan terbaru, kami memastikan bahwa website Anda mendapatkan keunggulan teknologi yang diperlukan untuk berhasil.</p>
                   </li>
@@ -281,10 +281,57 @@ function page() {
       </Container>
       <Container>
         <section>
-          <h3 className='mt-24 mb-4 text-center text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Daftar Harga Layanan Pembuatan Website kami</h3>
+          <h3 className='mt-24 mb-4 text-center text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Daftar Harga Layanan Pembuatan Website kami</h3>
           <p className='mb-12 text-center'>Silahkan pilih jenis website dibawah untuk menampilkan daftar harga pembuatan website.</p>
           <PriceList />
         </section>
+
+
+        
+        <div className='mt-32'>
+          <div className='relative flex justify-center'>
+            <Image src="/image/tedung.svg" width={256} height={256} className='hidden lg:block absolute -z-10 top-12 end-0 xl:end-12 2xl:end-32 rotate-[16deg]'/>
+            <Image src="/image/grass-1.svg" width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 end-12 xl:end-24 2xl:end-44'/>
+            <Image src="/image/tedung.svg" width={256} height={256} className='hidden lg:block absolute -z-10 top-12 start-0 xl:start-12 2xl:start-32 -rotate-[12deg]'/>
+            <Image src="/image/grass-1.svg" width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 start-12 xl:start-24 2xl:start-44'/>
+            <div className='flex flex-col justify-center items-center'>
+              <h3 className='mb-12 max-w-2xl text-center text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Berikut merupakan proses kami dalam pembuatan website</h3>  
+              <ol className="max-w-xl relative border-s border-gray-200 dark:border-pink-500">
+                <li className="mb-10 ms-4">
+                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-pink-400 dark:bg-pink-500" />
+                  <time className="mb-1 text-sm font-normal leading-none text-pink-600 dark:text-pink-400">Tahap Pertama</time>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Konsultasi Awal</h3>
+                  <p className="mb-4 text-base font-normal text-gray-500 dark:text-zinc-200">Kami akan mendengarkan kebutuhan dan visi Anda untuk proyek pembuatan website Anda pada sesi konsultasi awal ini.</p>
+                </li>
+                <li className="mb-10 ms-4">
+                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-pink-400 dark:bg-pink-500" />
+                  <time className="mb-1 text-sm font-normal leading-none text-pink-600 dark:text-pink-400">Tahap Kedua</time>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Perencanaan</h3>
+                  <p className="text-base font-normal text-gray-500 dark:text-zinc-200">Berdasarkan konsultasi awal, kami akan merancang rencana yang mencakup struktur situs, fungsionalitas, dan desain.</p>
+                </li>
+                <li className="mb-10 ms-4">
+                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-pink-400 dark:bg-pink-500" />
+                  <time className="mb-1 text-sm font-normal leading-none text-pink-600 dark:text-pink-400">Tahap Ketiga</time>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Pengembangan</h3>
+                  <p className="text-base font-normal text-gray-500 dark:text-zinc-200">Tim pengembangan kami akan mulai membangun website Anda dengan menggunakan teknologi terbaru dan praktik terbaik.</p>
+                </li>
+                <li className="mb-10 ms-4">
+                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-pink-400 dark:bg-pink-500" />
+                  <time className="mb-1 text-sm font-normal leading-none text-pink-600 dark:text-pink-400">Tahap Keempat</time>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Pengujian</h3>
+                  <p className="text-base font-normal text-gray-500 dark:text-zinc-200">Kami akan melakukan pengujian menyeluruh untuk memastikan bahwa website Anda berfungsi dengan baik di berbagai perangkat dan browser.</p>
+                </li>
+                <li className="mb-10 ms-4">
+                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-pink-400 dark:bg-pink-500" />
+                  <time className="mb-1 text-sm font-normal leading-none text-pink-600 dark:text-pink-400">Tahap Kelima</time>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Penyelesaian dan Peluncuran</h3>
+                  <p className="text-base font-normal text-gray-500 dark:text-zinc-200">Setelah semua perbaikan dan penyesuaian dilakukan, kami akan meluncurkan website Anda secara resmi ke publik.</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
 
         <br />
         <br />
@@ -297,7 +344,11 @@ function page() {
         <br />
         <br />
         <br />
+
       </Container>
+      <footer className='border-t border-zinc-700 text-center text-sm py-8'>
+        <p>© {new Date().getFullYear()} Ashura Bali. All Rights Reserved.</p>
+      </footer>
     </>
   )
 }
