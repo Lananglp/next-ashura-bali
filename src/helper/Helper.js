@@ -11,11 +11,9 @@ export function textForWhatsapp({
     hargaDomain = 0,
     hargaAwal = 0,
     hargaPerBulan = 0,
-    hargaPerTahun = 0,
     hargaTahun = 0,
     checkDomain = false,
     checkHosting = false,
-    hargaLifetime = 0
 }) {
 return `
 Nama lengkap/Perusahaan: *${namaLengkap}*
@@ -47,22 +45,7 @@ Total pembayaran pertama:
 Pembayaran akhir bulan:
 *${formatRupiah(hargaPerBulan)} /bulan*
 
-Pembayaran akhir tahun:
-*${formatRupiah(hargaPerTahun)} /tahun*
-
 Opsi lain pembayaran:
 *${formatRupiah(hargaTahun)} /tahun*
-${checkDomain && checkHosting ? 
-`(Sudah termasuk biaya hosting dan domain.)` 
-: 
-`${!checkDomain && !checkHosting ? 
-`(Belum termasuk biaya hosting dan domain.)`
-: 
-`${checkDomain ? `(Belum termasuk biaya hosting.)` : ``}
-${checkHosting ? `(Belum termasuk biaya domain.)` : ``}`}`
-}
-
-*${formatRupiah(hargaLifetime)} /lifetime*
-(Belum termasuk biaya hosting dan domain.)
 `;
 }

@@ -5,7 +5,7 @@ import { IoMdSettings } from "react-icons/io";
 import { formatRupiah, textForWhatsapp } from '@/helper/Helper';
 import Link from 'next/link';
 
-function PriceList() {
+function PriceListOld() {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -37,8 +37,17 @@ function PriceList() {
     const hargaTotal = hargaWebsite + hargaAdminDashboard + totalHargaFitur;
     // const hargaAwal = hargaTotal + hargaHosting + hargaDomain;
     const hargaAwal = hargaTotal;
-    const hargaPerBulan = hargaTotal * potonganHargaPerBulan + hargaHosting;
-    const hargaPerTahun = hargaTotal * potonganHargaPerBulan + hargaHosting + hargaDomain;
+    // const hargaPerTahun = hargaTotal * potonganHargaPerBulan + hargaHosting + hargaDomain;
+    
+    
+    const cicilanDomain = hargaDomain / 12;
+    const hargaPerBulan = hargaTotal * potonganHargaPerBulan + hargaHosting + cicilanDomain;
+    // const hargaPerTahun = cicilanDomain;
+
+
+
+
+
 
     const HargaHostingSetahun = hargaHosting * 12;
     const hargaTahun = ((hargaTotal * potonganHargaPerBulan) * 12) * potonganhargaPerTahun + HargaHostingSetahun + hargaDomain; // 0.15
@@ -59,11 +68,9 @@ function PriceList() {
         hargaDomain: hargaDomain,
         hargaAwal: hargaAwal,
         hargaPerBulan: hargaPerBulan,
-        hargaPerTahun: hargaPerTahun,
         hargaTahun: hargaTahun,
         checkDomain: checkDomain,
         checkHosting: checkHosting,
-        hargaLifetime: hargaLifetime,
     });
 
     const priceListWhatsapp = encodeURIComponent(textDecode.trim());
@@ -147,20 +154,21 @@ function PriceList() {
                     <div className='max-w-5xl md:flex flex-row border border-pink-500 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
                         <div className='basis-2/3 p-6'>
                             <div className='border-b border-zinc-700 pb-4'>
-                                <h6 className='mb-2 text-xl font-medium text-white'>Akumulasi harga Website Marketing</h6>
-                                <p className='text-sm'>Silahkan checklist fitur-fitur dibawah ini yang ingin anda gunakan, harga website akan menyesuaikan dengan fitur yang anda pilih.</p>
+                                <h6 className='mb-2 text-xl font-medium text-white'>Harga Website Marketing</h6>
+                                {/* <p className='text-sm'>Silahkan checklist fitur-fitur dibawah ini yang ingin anda gunakan, harga website akan menyesuaikan dengan fitur yang anda pilih.</p> */}
+                                <p className='text-sm'>Berikut merupakan .</p>
                             </div>
                             <ul className='space-y-1 mt-4'>
                                 <li>
                                     <div className="flex items-center space-x-3">
                                         <FaCheck className='inline text-green-400 mx-1.5'/>
-                                        <span className='text-sm'>Desain simple, elegan & modern</span>
+                                        <span className='text-sm'>Desain elegan, modern & menyesuaikan dengan kebutuhan anda.</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="flex items-center space-x-3">
                                         <FaCheck className='inline text-green-400 mx-1.5'/>
-                                        <span className='text-sm'>Responsive & compatibel semua perangkat</span>
+                                        <span className='text-sm'>Responsive & compatibel semua perangkat (HP, Tablet &amp; Laptop)</span>
                                     </div>
                                 </li>
                                 <li>
@@ -184,21 +192,16 @@ function PriceList() {
                                 <li>
                                     <div className="flex items-center space-x-3">
                                         <FaCheck className='inline text-green-400 mx-1.5'/>
-                                        <span className='text-sm'>Gratis Hosting 1 bulan pertama</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="flex items-center space-x-3">
-                                        <FaCheck className='inline text-green-400 mx-1.5'/>
                                         <span className='text-sm'>Gratis Domain 1 tahun pertama</span>
                                     </div>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <label className="inline-flex items-center cursor-pointer">
                                         <input onClick={() => toggleCheck("hosting")} type="checkbox" defaultValue className="sr-only peer" defaultChecked/>
                                         <div className="relative w-7 h-3 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
-                                        <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Hosting website</span>
+                                        <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Hosting gratis di kami</span>
                                     </label>
+                                    <p className='my-2 max-w-lg ps-12 text-xs'><FaCircleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Pilihan ini cocok untuk website.</p>
                                 </li>
                                 <li>
                                     <label className="inline-flex items-center cursor-pointer">
@@ -213,14 +216,14 @@ function PriceList() {
                                         <div className="relative w-7 h-3 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                                         <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Admin Panel: <span className="font-semibold ms-1">Untuk memanajemen konten</span></span>
                                     </label>
-                                </li>
+                                </li> */}
                                 <li>
                                     <div className="flex items-center space-x-3">
                                         {checkAdmin ? <FaCheck className='inline text-green-400 mx-1.5'/> : <FaXmark className='inline text-red-400 mx-1.5'/>}
                                         <span className='text-sm'>Database system security</span>
                                     </div>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <div className="flex items-center space-x-3">
                                         <IoMdSettings className='inline text-white mx-1.5'/>
                                         <span className='text-sm'>Fitur dalam website (+ {formatRupiah(hargaFitur)} /fitur)</span>
@@ -304,7 +307,7 @@ function PriceList() {
                                             <Link href={`https://api.whatsapp.com/send?phone=6285737578780&text=${priceListWhatsapp}`} target='_blank' type="button" className='inline-block mt-2 px-4 py-1 bg-green-700 hover:bg-green-800 text-white rounded'><FaWhatsapp className='inline me-1 mb-0.5'/> Hubungi Kami</Link>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         <div className='basis-1/3 rounded-r-lg border-s border-pink-500 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950'>
@@ -316,17 +319,17 @@ function PriceList() {
                                 <span className='text-sm'>Biaya domain:</span>
                                 <p className='text-xl text-white'>{checkDomain ? formatRupiah(hargaDomain) : formatRupiah(0)} /tahun</p>
                                 <div className='my-6 border-b border-zinc-700'/>
-                                <p className='mb-2 text-center text-sm'>Total pembayaran pertama:</p>
+                                <p className='mb-2 text-center text-sm'>Total biaya pertama:</p>
                                 <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                                     <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaWebsite ? formatRupiah(hargaAwal) : formatRupiah(0)}</span>
                                     {/* <span className="text-sm text-gray-500 dark:text-zinc-200">/bulan</span> */}
                                 </button>
-                                <p className='my-2 text-center text-sm'>Pembayaran akhir bulan:</p>
+                                <p className='my-2 text-center text-sm'>biaya pemeliharaan:</p>
                                 <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                                     <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{hargaWebsite ? formatRupiah(hargaPerBulan) : formatRupiah(0)}</span>
                                     <span className="text-sm text-gray-500 dark:text-zinc-200">/bulan</span>
                                 </button>
-                                {checkDomain &&
+                                {/* {checkDomain &&
                                     <>
                                         <p className='my-2 text-center text-sm'>Pembayaran akhir tahun:</p>
                                         <button className="mb-3 w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
@@ -334,9 +337,10 @@ function PriceList() {
                                             <span className="text-sm text-gray-500 dark:text-zinc-200">/tahun</span>
                                         </button>
                                     </>
-                                }
-                                <div className='my-6 border-b border-zinc-700'/>
-                                <p className='mb-2 text-center text-sm'>Opsi lain pembayaran:</p>
+                                } */}
+                                {/* <div className='my-6 border-b border-zinc-700'/> */}
+                                {/* <p className='mb-2 text-center text-sm'>Opsi lain pembayaran:</p> */}
+                                <p className='my-2 text-center text-sm'>atau</p>
                                 <button className="mt-2 w-full relative text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                                     <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{formatRupiah(hargaTahun)}</span>
                                     <span className="text-sm text-gray-500 dark:text-zinc-200">/tahun</span>
@@ -344,7 +348,7 @@ function PriceList() {
                                         Hemat {formatRupiah(selisihHargaPerTahun)}
                                     </div>
                                 </button>
-                                {checkDomain && checkHosting ? (
+                                {/* {checkDomain && checkHosting ? (
                                     <p className='px-4 mt-4 text-center text-xs'><FaCircleCheck className='inline text-green-400 me-1 mb-0.5'/> Sudah termasuk biaya hosting dan domain.</p>
                                 ) : (
                                     <p className='px-4 mt-4 text-center text-xs'><FaCircleExclamation className='inline text-yellow-300 me-1 mb-0.5'/>
@@ -357,13 +361,13 @@ function PriceList() {
                                         </>
                                     }
                                     </p>
-                                )}
-                                <p className='my-2 text-center text-sm'>atau</p>
+                                )} */}
+                                {/* <p className='my-2 text-center text-sm'>atau</p>
                                 <button className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-1 focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                                     <span className="mr-2 text-lg font-semibold text-zinc-200 dark:text-white">{formatRupiah(hargaLifetime)}</span>
                                     <span className="text-sm text-gray-500 dark:text-zinc-200">/lifetime</span>
                                 </button>
-                                <p className='px-4 mt-4 text-center text-xs'><FaCircleExclamation className='inline text-yellow-300 me-1 mb-0.5'/> Belum termasuk biaya hosting dan domain.</p>
+                                <p className='px-4 mt-4 text-center text-xs'><FaCircleExclamation className='inline text-yellow-300 me-1 mb-0.5'/> Belum termasuk biaya hosting dan domain.</p> */}
                             </div>
                         </div>
                     </div>
@@ -372,7 +376,12 @@ function PriceList() {
         },
         {
             label: 'Company Profile', content: (
-                <div></div>
+                <div className='flex place-content-center'>
+                    <div className='max-w-4xl p-6 border border-pink-500 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
+                        <h6 className='text-xl font-medium text-white'>Harga website marketing</h6>
+                        <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, dolore? Eos quod consequatur est. Excepturi eveniet iure id atque deserunt.</p>
+                    </div>
+                </div>
             )
         },
         {
@@ -416,4 +425,4 @@ function PriceList() {
   )
 }
 
-export default PriceList
+export default PriceListOld

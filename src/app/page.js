@@ -2,16 +2,18 @@ import Container from '@/components/Container'
 import Link from 'next/link'
 import React from 'react'
 import { GoTag } from "react-icons/go";
-import { FaPhone, FaStar, FaXmark, FaCheck } from "react-icons/fa6";
+import { FaPhone, FaStar, FaXmark, FaCheck, FaEye, FaWhatsapp } from "react-icons/fa6";
 import { FcApproval, FcCommandLine, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcTimeline } from "react-icons/fc";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import PriceList from '@/components/PriceList';
+import { formatRupiah } from '@/helper/Helper';
+import Button from '@/components/Button';
 
 const Product = ({type, title, description, example, contactURL }) => {
   return (
     <div className='basis-full sm:basis-6/12 md:basis-5/12 xl:basis-3/12 group/pelayanan relative grid grid-cols-1 border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
-      <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-purple-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+      <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
         {type}
       </div>
       <div className='overflow-hidden relative grid grid-cols-1 content-between px-6 pb-6 pt-8'>
@@ -19,13 +21,17 @@ const Product = ({type, title, description, example, contactURL }) => {
           <h6 className='mb-2 text-pink-400 font-semibold'>{title}</h6>
           <p className='mb-2 text-sm'>{description}</p>
         </div>
-        <div>
-          <span className='text-pink-500 text-sm font-medium'>Contoh :</span>
-          <p className='text-sm'>{example}</p>
-        </div>
-        <Link href={`https://api.whatsapp.com/send?phone=6285737578780&text=${contactURL}`} target='_blank' className='block group-hover/pelayanan:-bottom-0 absolute -bottom-8 start-1/2 -translate-x-1/2 bg-gradient-to-b from-green-600 dark:from-green-900 to-green-500 dark:to-green-700 text-white text-nowrap rounded-t-xl border-t-4 border-pink-500 shadow-xl shadow-black px-6 py-1 transition-all duration-500'>
-          <p className='text-center'><FaPhone className='inline me-1 mb-0.5' /> Hubungi Sekarang</p>
-        </Link>
+        {example &&
+          <div>
+            <span className='text-pink-500 text-sm font-medium'>Contoh :</span>
+            <p className='text-sm'>{example}</p>
+          </div>
+        }
+        {contactURL &&
+          <Link href={`https://api.whatsapp.com/send?phone=6285737578780&text=${contactURL}`} target='_blank' className='block group-hover/pelayanan:-bottom-0 absolute -bottom-7 start-1/2 -translate-x-1/2 bg-gradient-to-b from-green-600 dark:from-green-900 to-green-500 dark:to-green-700 text-white text-sm text-nowrap rounded-t-xl border-t-4 border-pink-500 shadow-xl shadow-black px-6 py-1 transition-all duration-500'>
+            <p className='text-center'><FaWhatsapp className='inline h-3.5 w-3.5 me-1 mb-0.5' />Hubungi Sekarang</p>
+          </Link>
+        }
         <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
         <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
         <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
@@ -128,7 +134,7 @@ function page() {
                 type="Landing Page"
                 title="Undangan Online"
                 description="Buat momen istimewa Anda lebih berkesan dengan undangan online yang elegan dan informatif. Kami merancang undangan digital yang menarik dan interaktif untuk berbagai acara, memudahkan Anda dalam berbagi undangan dan mengelola daftar tamu."
-                example="Undangan pernikahan, undangan ulang tahun, undangan acara perusahaan, undangan pesta."
+                example="Undangan pernikahan, Undangan pawiwahan, undangan ulang tahun, undangan pesta."
                 contactURL={undanganTextForWhatsapp}
               />
 
@@ -278,17 +284,15 @@ function page() {
               </div>
             </div>
         </section>
+
+        <PriceList/>
       </Container>
       <Container>
-        <section>
-          <h3 className='mt-24 mb-4 text-center text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Daftar Harga Layanan Pembuatan Website kami</h3>
-          <p className='mb-12 text-center'>Silahkan pilih jenis website dibawah untuk menampilkan daftar harga pembuatan website.</p>
-          <PriceList />
-        </section>
+        
 
 
         
-        <div className='mt-32'>
+        {/* <div className='mt-32'>
           <div className='relative flex justify-center'>
             <Image src="/image/tedung.svg" width={256} height={256} className='hidden lg:block absolute -z-10 top-12 end-0 xl:end-12 2xl:end-32 rotate-[16deg]'/>
             <Image src="/image/grass-1.svg" width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 end-12 xl:end-24 2xl:end-44'/>
@@ -330,7 +334,7 @@ function page() {
               </ol>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
         <br />

@@ -103,6 +103,14 @@ body {
   color: #831843;
 }
 
+.button-gradient-custom{
+  @apply inline-block bg-gradient-to-r from-purple-800 to-pink-800 hover:from-purple-900 hover:to-pink-900 ring-1 ring-transparent hover:scale-[1.025] focus:ring-zinc-400 text-white font-medium text-sm text-center rounded shadow-xl shadow-pink-700/50 transition duration-200 px-8 py-2;
+}
+
+.button-gradient-green{
+  @apply inline-block text-center mt-8 mb-4 px-8 py-2 bg-green-700 hover:bg-green-800 text-white rounded shadow-xl shadow-green-700/50 transition duration-200 hover:scale-[1.025];
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
