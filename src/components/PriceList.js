@@ -23,7 +23,7 @@ function PriceList() {
                 <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-2/4 -top-24 w-80 h-80' />
                 <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/4 bottom-1/4 w-72 h-72 hidden xl:block' />
                 <div className="mx-auto max-w-5xl lg:flex place-content-center gap-8">
-                    <div className='basis-1/3'>
+                    <div className='basis-1/3 hidden lg:block'>
                         <div className='rounded-lg bg-pink-950/75 border border-pink-900/75 translate-x-2 translate-y-2'>
                             <div className='rounded-lg bg-pink-950/50 border border-pink-900/50 translate-x-2 translate-y-2'>
                                 <div className='group/pelayanan relative -translate-x-4 -translate-y-4 grid grid-cols-1 border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
@@ -57,14 +57,18 @@ function PriceList() {
                             </Link>
                         </div>
                     </div>
-                    <div className="basis-2/3 relative">
+                    <div className="basis-2/3 relative p-6 border lg:border-none border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 lg:from-transparent lg:dark:from-transparent lg:to-transparent lg:dark:to-transparent dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl lg:shadow-none shadow-zinc-950/10 dark:shadow-zinc-950/50">
                         <FaStar className='animate-custom-3 absolute -z-10 end-1/4 top-0 w-4 h-4 text-pink-500' />
                         <FaStar className='animate-custom-4 absolute -z-10 end-32 top-12 w-3 h-3 text-pink-500' />
                         <FaStar className='animate-custom-5 absolute -z-10 end-1/2 top-8 w-2 h-2 text-pink-500' />
                         <FaStar className='animate-custom-3 absolute -z-10 end-1/3 top-1/3 w-4 h-4 text-pink-500' />
                         <FaStar className='animate-custom-4 absolute -z-10 end-0 bottom-48 w-5 h-5 text-pink-500' />
                         <FaStar className='animate-custom-3 absolute -z-10 end-32 bottom-32 w-3 h-3 text-pink-500' />
-                        <h2 className="mb-2 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">{formatRupiah(hargaWebMarketing)}</h2>
+                        <div className='block lg:hidden absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+                            Landing Page
+                        </div>
+                        <h2 className='my-4 text-2xl block lg:hidden font-bold bg-clip-text bg-gradient-to-r text-transparent from-pink-400 to-purple-400'>Website Marketing</h2>
+                        <h2 className="mb-2 text-2xl lg:text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">{formatRupiah(hargaWebMarketing)}</h2>
                         <div className='relative'>
                             <p className='mb-4'>{formatRupiah(hargaWebMarketing * 0.20)} /tahun <span className='text-xs text-blue-400'>(biaya perpanjangan)</span></p>
                             <div className='bg-yellow-400 rounded text-black font-bold absolute start-6 top-7 text-xs rotate-6 px-2'>
@@ -128,7 +132,7 @@ function PriceList() {
                                 </div>
                             </li>
                         </ul>
-                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto'>
+                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto mt-8'>
                             <FaStar className='group-hover/item:-translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute start-2 -top-2 w-4 h-4 text-green-500' />
                             <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:translate-y-0.5 transition duration-200 absolute end-4 -bottom-1 w-3 h-3 text-green-500' />
                             <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute end-2 top-0 w-2 h-2 text-green-500' />
@@ -146,7 +150,7 @@ function PriceList() {
                 <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-2/4 -top-24 w-80 h-80' />
                 <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/4 bottom-1/4 w-72 h-72 hidden xl:block' />
                 <div className="mx-auto max-w-5xl lg:flex place-content-center gap-8">
-                    <div className='basis-1/3'>
+                    <div className='basis-1/3 hidden lg:block'>
                         <div className='rounded-lg bg-pink-950/75 border border-pink-900/75 translate-x-2 translate-y-2'>
                             <div className='rounded-lg bg-pink-950/50 border border-pink-900/50 translate-x-2 translate-y-2'>
                                 <div className='group/pelayanan relative -translate-x-4 -translate-y-4 grid grid-cols-1 border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
@@ -180,14 +184,18 @@ function PriceList() {
                             </Link>
                         </div>
                     </div>
-                    <div className="basis-2/3 relative">
+                    <div className="basis-2/3 relative p-6 border lg:border-none border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 lg:from-transparent lg:dark:from-transparent lg:to-transparent lg:dark:to-transparent dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl lg:shadow-none shadow-zinc-950/10 dark:shadow-zinc-950/50">
                         <FaStar className='animate-custom-3 absolute -z-10 end-1/4 top-0 w-4 h-4 text-pink-500' />
                         <FaStar className='animate-custom-4 absolute -z-10 end-32 top-12 w-3 h-3 text-pink-500' />
                         <FaStar className='animate-custom-5 absolute -z-10 end-1/2 top-8 w-2 h-2 text-pink-500' />
                         <FaStar className='animate-custom-3 absolute -z-10 end-1/3 top-1/3 w-4 h-4 text-pink-500' />
                         <FaStar className='animate-custom-4 absolute -z-10 end-0 bottom-48 w-5 h-5 text-pink-500' />
                         <FaStar className='animate-custom-3 absolute -z-10 end-32 bottom-32 w-3 h-3 text-pink-500' />
-                        <h2 className="mb-2 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">{formatRupiah(hargaWebDashboard)}</h2>
+                        <div className='block lg:hidden absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+                            Admin Dashboard
+                        </div>
+                        <h2 className='my-4 text-2xl block lg:hidden font-bold bg-clip-text bg-gradient-to-r text-transparent from-pink-400 to-purple-400'>Sistem Informasi Manajemen</h2>
+                        <h2 className="mb-2 text-2xl lg:text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">{formatRupiah(hargaWebDashboard)}</h2>
                         <div className='relative'>
                             <p className='mb-4'>{formatRupiah(hargaWebDashboard * 0.20)} /tahun <span className='text-xs text-blue-400'>(biaya perpanjangan)</span></p>
                             <div className='bg-yellow-400 rounded text-black font-bold absolute start-6 top-7 text-xs rotate-6 px-2'>
@@ -251,7 +259,7 @@ function PriceList() {
                                 </div>
                             </li>
                         </ul>
-                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto'>
+                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto mt-8'>
                             <FaStar className='group-hover/item:-translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute start-2 -top-2 w-4 h-4 text-green-500' />
                             <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:translate-y-0.5 transition duration-200 absolute end-4 -bottom-1 w-3 h-3 text-green-500' />
                             <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute end-2 top-0 w-2 h-2 text-green-500' />
@@ -269,7 +277,7 @@ function PriceList() {
                 <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-2/4 -top-24 w-80 h-80' />
                 <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/4 bottom-1/4 w-72 h-72 hidden xl:block' />
                 <div className="mx-auto max-w-5xl lg:flex place-content-center gap-8">
-                    <div className='basis-1/3'>
+                    <div className='basis-1/3 hidden lg:block'>
                         <div className='rounded-lg bg-pink-950/75 border border-pink-900/75 translate-x-2 translate-y-2'>
                             <div className='rounded-lg bg-pink-950/50 border border-pink-900/50 translate-x-2 translate-y-2'>
                                 <div className='group/pelayanan relative -translate-x-4 -translate-y-4 grid grid-cols-1 border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
@@ -303,14 +311,18 @@ function PriceList() {
                             </Link>
                         </div>
                     </div>
-                    <div className="basis-2/3 relative">
+                    <div className="basis-2/3 relative p-6 border lg:border-none border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 lg:from-transparent lg:dark:from-transparent lg:to-transparent lg:dark:to-transparent dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl lg:shadow-none shadow-zinc-950/10 dark:shadow-zinc-950/50">
                         <FaStar className='animate-custom-3 absolute -z-10 end-1/4 top-0 w-4 h-4 text-pink-500' />
                         <FaStar className='animate-custom-4 absolute -z-10 end-32 top-12 w-3 h-3 text-pink-500' />
                         <FaStar className='animate-custom-5 absolute -z-10 end-1/2 top-8 w-2 h-2 text-pink-500' />
                         <FaStar className='animate-custom-3 absolute -z-10 end-1/3 top-1/3 w-4 h-4 text-pink-500' />
                         <FaStar className='animate-custom-4 absolute -z-10 end-0 bottom-48 w-5 h-5 text-pink-500' />
                         <FaStar className='animate-custom-3 absolute -z-10 end-32 bottom-32 w-3 h-3 text-pink-500' />
-                        <h2 className="mb-2 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">{formatRupiah(hargaWebPortal)}</h2>
+                        <div className='block lg:hidden absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+                            Portal Akademik
+                        </div>
+                        <h2 className='my-4 text-2xl block lg:hidden font-bold bg-clip-text bg-gradient-to-r text-transparent from-pink-400 to-purple-400'>Sistem Informasi Akademik</h2>
+                        <h2 className="mb-2 text-2xl lg:text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">{formatRupiah(hargaWebPortal)}</h2>
                         <div className='relative'>
                             <p className='mb-4'>{formatRupiah(hargaWebPortal * 0.20)} /tahun <span className='text-xs text-blue-400'>(biaya perpanjangan)</span></p>
                             <div className='bg-yellow-400 rounded text-black font-bold absolute start-6 top-7 text-xs rotate-6 px-2'>
@@ -374,7 +386,7 @@ function PriceList() {
                                 </div>
                             </li>
                         </ul>
-                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto'>
+                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto mt-8'>
                             <FaStar className='group-hover/item:-translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute start-2 -top-2 w-4 h-4 text-green-500' />
                             <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:translate-y-0.5 transition duration-200 absolute end-4 -bottom-1 w-3 h-3 text-green-500' />
                             <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute end-2 top-0 w-2 h-2 text-green-500' />
@@ -387,7 +399,7 @@ function PriceList() {
 
             <div className='my-6 border-b border-zinc-700' />
 
-            <div className='relative mt-12'>
+            <div className='relative my-12'>
                 <h3 className='mt-24 mb-4 text-center text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Harga khusus website undangan</h3>
                 <p className='mb-12 max-w-4xl mx-auto text-center'>Kami menawarkan harga terbaik melalui situs web kami. Kami sangat memperhatikan kepuasan pelanggan untuk memastikan pengalaman Anda yang baik dan memuaskan.</p>
                 <CardPriceList>
@@ -443,6 +455,71 @@ function PriceList() {
                         <FeaturePriceList type="yes">Bebas pilih tema <span className='text-xs'>(klik tombol dibawah untuk melihat contoh)</span></FeaturePriceList>
                     </ItemPriceList>
                 </CardPriceList>
+            </div>
+
+            <div className='my-6 border-b border-zinc-700' />
+
+            <div className='relative mt-12'>
+                <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 end-0 bottom-0 w-96 h-96' />
+                <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-2/4 -top-24 w-80 h-80' />
+                <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/15 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/4 bottom-1/4 w-72 h-72 hidden xl:block' />
+                <div className="mx-auto max-w-5xl lg:flex place-content-center gap-8">
+                    <div className='basis-1/3 hidden lg:block'>
+                        <div className='rounded-lg bg-pink-950/75 border border-pink-900/75 translate-x-2 translate-y-2'>
+                            <div className='rounded-lg bg-pink-950/50 border border-pink-900/50 translate-x-2 translate-y-2'>
+                                <div className='group/pelayanan relative -translate-x-4 -translate-y-4 grid grid-cols-1 border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
+                                    <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+                                        Custom
+                                    </div>
+                                    <div className='overflow-hidden relative grid grid-cols-1 content-between px-6 pb-6 pt-8'>
+                                        <div>
+                                            <h6 className='mb-2 text-2xl md:text-xl lg:text-base text-pink-400 font-semibold'>Pembuatan Website Custom</h6>
+                                            <p className='mb-2 text-sm'>Dapatkan website yang sepenuhnya disesuaikan dengan kebutuhan dan visi bisnis Anda. Kami merancang dan mengembangkan website yang unik, menampilkan karakter dan nilai bisnis Anda secara menyeluruh.</p>
+                                        </div>
+                                        <div className='hidden lg:block'>
+                                            <span className='text-pink-500 text-sm font-medium'>Contoh :</span>
+                                            <p className='text-sm'>Website sekolah/kampus, website perusahaan, website pribadi, website layanan profesional.</p>
+                                        </div>
+                                        <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
+                                        <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
+                                        <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='my-8'>
+                            <p className='text-sm'>Klik tombol dibawah untuk contoh website:</p>
+                            <Link href="/" className='group/item relative mt-4 mb-0 button-gradient-custom'>
+                                <FaStar className='group-hover/item:-translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute start-2 -top-2 w-4 h-4 text-pink-500' />
+                                <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:translate-y-0.5 transition duration-200 absolute end-4 -bottom-1 w-3 h-3 text-pink-500' />
+                                <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute end-2 top-0 w-2 h-2 text-pink-500' />
+                                <FaEye className='inline me-1 mb-1' />
+                                Klik disini
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="basis-2/3 relative p-6 border lg:border-none border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 lg:from-transparent lg:dark:from-transparent lg:to-transparent lg:dark:to-transparent dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl lg:shadow-none shadow-zinc-950/10 dark:shadow-zinc-950/50">
+                        <FaStar className='animate-custom-3 absolute -z-10 end-1/4 top-0 w-4 h-4 text-pink-500' />
+                        <FaStar className='animate-custom-4 absolute -z-10 end-32 top-12 w-3 h-3 text-pink-500' />
+                        <FaStar className='animate-custom-5 absolute -z-10 end-1/2 top-8 w-2 h-2 text-pink-500' />
+                        <FaStar className='animate-custom-3 absolute -z-10 end-1/3 top-1/3 w-4 h-4 text-pink-500' />
+                        <FaStar className='animate-custom-4 absolute -z-10 end-0 bottom-48 w-5 h-5 text-pink-500' />
+                        <FaStar className='animate-custom-3 absolute -z-10 end-32 bottom-32 w-3 h-3 text-pink-500' />
+                        <div className='block lg:hidden absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+                            Custom
+                        </div>
+                        <h2 className='my-4 text-2xl block lg:hidden font-bold bg-clip-text bg-gradient-to-r text-transparent from-pink-400 to-purple-400'>Pembuatan Website Custom</h2>
+                        <p className="mb-8 text-white text-lg">Biaya pembuatan website custom kami sangat bervariasi dan ditentukan oleh fitur-fitur yang Anda inginkan serta tingkat kompleksitas proyek. Kami berkomitmen untuk memberikan solusi yang sepenuhnya disesuaikan dengan kebutuhan dan visi bisnis Anda, sehingga Anda mendapatkan nilai optimal untuk investasi yang Anda keluarkan.</p>
+                        <p>Segera konsultasikan kebutuhan Anda dengan kami dan mulailah perjalanan menuju website impian Anda dengan menekan tombol di bawah ini.</p>
+                        <Link href="/" type="button" className='group/item relative button-gradient-green w-full md:w-auto mt-8'>
+                            <FaStar className='group-hover/item:-translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute start-2 -top-2 w-4 h-4 text-green-500' />
+                            <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:translate-y-0.5 transition duration-200 absolute end-4 -bottom-1 w-3 h-3 text-green-500' />
+                            <FaStar className='group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition duration-200 absolute end-2 top-0 w-2 h-2 text-green-500' />
+                            <FaWhatsapp className='inline h-5 w-5 me-1 mb-1' />
+                            Konsultasikan Sekarang
+                        </Link>
+                    </div>
+                </div>
             </div>
         </section>
     )

@@ -5,7 +5,7 @@ import { FaCheck, FaCloud, FaXmark } from 'react-icons/fa6'
 function CardPriceList({children}) {
   return (
     <div className="mx-auto max-w-6xl">
-        <div className="md:flex md:flex-row md:flex-wrap xl:flex-nowrap justify-center gap-4">{children}</div>
+        <div className="md:flex md:flex-row md:flex-wrap xl:flex-nowrap justify-center gap-4 space-y-4 md:space-y-0">{children}</div>
     </div>
   )
 }

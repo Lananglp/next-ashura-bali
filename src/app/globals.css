@@ -22,7 +22,7 @@ body {
   @apply text-pink-500;
 }
 
-.animate-custom-1 {
+/* .animate-custom-1 {
   animation: animate-custom-1 2s infinite alternate forwards;
 }
 
@@ -85,7 +85,7 @@ body {
   100% {
     transform: translateY(1rem) rotate(90deg) scale(1.5);
   }
-}
+} */
 
 .color-pink-400 {
   color: #f472b6;
@@ -108,7 +108,7 @@ body {
 }
 
 .button-gradient-green{
-  @apply inline-block text-center mt-8 mb-4 px-8 py-2 bg-green-700 hover:bg-green-800 text-white rounded shadow-xl shadow-green-700/50 transition duration-200 hover:scale-[1.025];
+  @apply inline-block text-center bg-green-700 hover:bg-green-800 text-white rounded shadow-xl shadow-green-700/50 transition duration-200 hover:scale-[1.025] px-8 py-2;
 }
 
 /* :root {

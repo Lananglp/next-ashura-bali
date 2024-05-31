@@ -1,6 +1,7 @@
+'use client'
 import Container from '@/components/Container'
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef } from 'react'
 import { GoTag } from "react-icons/go";
 import { FaPhone, FaStar, FaXmark, FaCheck, FaEye, FaWhatsapp } from "react-icons/fa6";
 import { FcApproval, FcCommandLine, FcFaq, FcMoneyTransfer, FcMultipleDevices, FcTimeline } from "react-icons/fc";
@@ -9,6 +10,7 @@ import Image from 'next/image';
 import PriceList from '@/components/PriceList';
 import { formatRupiah } from '@/helper/Helper';
 import Button from '@/components/Button';
+import ButtonWhatsapp from '@/components/ButtonWhatsapp';
 
 const Product = ({type, title, description, example, contactURL }) => {
   return (
@@ -40,7 +42,13 @@ const Product = ({type, title, description, example, contactURL }) => {
   )
 }
 
-function page() {
+function Page() {
+
+  const pricelistRef = useRef(null);
+
+  const refs = {
+    pricelistRef,
+  };
 
   // useEffect(() => {
   //   document.documentElement.classList.add("scroll-smooth");
@@ -54,7 +62,7 @@ function page() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar refs={refs}/>
 
       <Container overflow="hidden">
         <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover lg:mt-12">
@@ -139,9 +147,9 @@ function page() {
               />
 
               <Product
-                type="Gabungan"
+                type="Custom"
                 title="Pembuatan Website Custom"
-                description="Kami menawarkan paket pembuatan website custom termasuk landing page, admin dashboard, dan portal akademik dalam satu kesatuan yang terintegrasi. Dengan paket ini, Anda akan mendapatkan harga yang lebih hemat dibandingkan membeli masing-masing secara terpisah. Kami merancang dan mengembangkan website yang unik, menampilkan karakter dan nilai bisnis Anda secara menyeluruh."
+                description="Dapatkan website yang sepenuhnya disesuaikan dengan kebutuhan dan visi bisnis Anda. Kami merancang dan mengembangkan website yang unik, menampilkan karakter dan nilai bisnis Anda secara menyeluruh."
                 example="Website sekolah/kampus, website perusahaan, website pribadi, website layanan profesional."
                 contactURL={CustomWebTextForWhatsapp}
               />
@@ -285,19 +293,21 @@ function page() {
             </div>
         </section>
 
-        <PriceList/>
+        <div ref={pricelistRef}>
+          <PriceList/>
+        </div>
       </Container>
       <Container>
         
 
 
         
-        {/* <div className='mt-32'>
+        <div className='mt-32'>
           <div className='relative flex justify-center'>
-            <Image src="/image/tedung.svg" width={256} height={256} className='hidden lg:block absolute -z-10 top-12 end-0 xl:end-12 2xl:end-32 rotate-[16deg]'/>
-            <Image src="/image/grass-1.svg" width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 end-12 xl:end-24 2xl:end-44'/>
-            <Image src="/image/tedung.svg" width={256} height={256} className='hidden lg:block absolute -z-10 top-12 start-0 xl:start-12 2xl:start-32 -rotate-[12deg]'/>
-            <Image src="/image/grass-1.svg" width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 start-12 xl:start-24 2xl:start-44'/>
+            <Image src="/image/tedung.svg" alt='tedung.svg' width={256} height={256} className='hidden lg:block absolute -z-10 top-12 end-0 xl:end-12 2xl:end-32 rotate-[16deg]'/>
+            <Image src="/image/grass-1.svg" alt='grass-1.svg' width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 end-12 xl:end-24 2xl:end-44'/>
+            <Image src="/image/tedung.svg" alt='tedung.svg' width={256} height={256} className='hidden lg:block absolute -z-10 top-12 start-0 xl:start-12 2xl:start-32 -rotate-[12deg]'/>
+            <Image src="/image/grass-1.svg" alt='grass-1.svg' width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 start-12 xl:start-24 2xl:start-44'/>
             <div className='flex flex-col justify-center items-center'>
               <h3 className='mb-12 max-w-2xl text-center text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Berikut merupakan proses kami dalam pembuatan website</h3>  
               <ol className="max-w-xl relative border-s border-gray-200 dark:border-pink-500">
@@ -334,27 +344,18 @@ function page() {
               </ol>
             </div>
           </div>
-        </div> */}
+        </div>
 
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
 
       </Container>
       <footer className='border-t border-zinc-700 text-center text-sm py-8'>
         <p>© {new Date().getFullYear()} Ashura Bali. All Rights Reserved.</p>
       </footer>
+
+      <ButtonWhatsapp/>
     </>
   )
 }
 
-export default page
+export default Page
