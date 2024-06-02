@@ -13,7 +13,7 @@ const birthstone = Birthstone({
 function OpenWedding({images}) {
 
     return (
-        <div className='overflow-hidden h-screen'>
+        <div>
             <div className='overflow-hidden absolute inset-0'>
                 <ImageSlideShow images={images}/>
             </div>
