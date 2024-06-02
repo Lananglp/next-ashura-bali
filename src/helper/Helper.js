@@ -2,6 +2,11 @@ export const formatRupiah = (number) => {
     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(number);
 }
 
+export const formatDate = (date) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('id-ID', options);
+};
+
 export function textForWhatsapp({
     namaLengkap = 'Nama/Perusahaan',
     jenisWebsite = 'Jenis website',
