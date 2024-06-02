@@ -94,7 +94,7 @@ function OpenWedding({images}) {
                             <div className='absolute inset-x-0 top-2'>
                                 <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-56 h-auto'/>
                             </div>
-                            <Image src={images[0]} alt='Image1' width={1080} height={768} className='w-full h-full'/>
+                            <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
                             <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                         </div>
 
@@ -111,8 +111,8 @@ function OpenWedding({images}) {
                         </div>
 
                         <div className='relative'>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black from-[90%] to-[100%]'/>
-                            <Image src='/image/undangan/man.jpeg' alt='Image1' width={1080} height={768} className='w-full h-full'/>
+                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                            <Image src='/image/undangan/man.jpeg' alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
                             <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                         </div>
 
@@ -131,8 +131,8 @@ function OpenWedding({images}) {
                         </div>
 
                         <div className='relative'>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black from-[90%] to-[100%]'/>
-                            <Image src='/image/undangan/woman.jpeg' alt='Image1' width={1080} height={768} className='w-full h-full'/>
+                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                            <Image src='/image/undangan/woman.jpeg' alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
                             <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                         </div>
 
@@ -151,8 +151,8 @@ function OpenWedding({images}) {
                         </div>
 
                         <div className='relative'>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black from-[90%] to-[100%]'/>
-                            <Image src={images[2]} alt='Image1' width={1080} height={768} className='w-full h-full'/>
+                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                            <Image src={images[2]} alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
                             <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                         </div>
 
