@@ -15,18 +15,26 @@ function ImageSlideShow({ images }) {
     }, []);
 
     return (
-        <AnimatePresence mode='wait' initial={false}>
-            <motion.img
+        <AnimatePresence mode='wait'>
+            <motion.div 
                 key={index}
-                src={images[index]}
-                className="w-screen h-screen object-cover"
-                alt={`Undangan ${index + 1}`}
-                initial={{ scale: 1.2, opacity: 0.25 }}
-                animate={{ scale: 1.1, opacity: 1 }}
-                exit={{ scale: 1, opacity: 0.25 }}
-                transition={{ease: 'linear', duration: 2.5}}
-            />
-        </AnimatePresence>
+                initial={{ scale: 1.2 }}
+                animate={{ scale: 1 }}
+                // exit={{ scale: 1.1 }}
+                transition={{ ease: 'linear', duration: 5 }}
+            >
+                <motion.img
+                    key={index}
+                    src={images[index]}
+                    className="w-screen h-screen object-cover"
+                    alt={`Undangan ${index + 1}`}
+                    initial={{ opacity: 0.25 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0.25 }}
+                    transition={{ ease: 'linear', duration: 2.5 }}
+                />
+            </motion.div>
+            </AnimatePresence>
     )
 }
 
