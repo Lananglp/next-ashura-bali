@@ -103,6 +103,18 @@ body {
   color: #831843;
 }
 
+.color-gold-100 {
+  color: #fef9c3;
+}
+
+.color-gold-200 {
+  color: #fef08a;
+}
+
+.color-gold-300 {
+  color: #fde047;
+}
+
 .button-gradient-custom{
   @apply inline-block bg-gradient-to-r from-purple-800 to-pink-800 hover:from-purple-900 hover:to-pink-900 ring-1 ring-transparent hover:scale-[1.025] focus:ring-zinc-400 text-white font-medium text-sm text-center rounded shadow-xl shadow-pink-700/50 transition duration-200 px-8 py-2;
 }

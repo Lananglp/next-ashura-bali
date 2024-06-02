@@ -7,6 +7,15 @@ export const formatDate = (date) => {
     return date.toLocaleDateString('id-ID', options);
 };
 
+export const handleMusic = (action) => {
+    const audioWedding = new Audio('/audio/soundWedding.mp3');
+    if (action === 'play') {
+        audioWedding.play();
+    } else if (action === 'pause') {
+        audioWedding.pause();
+    }
+}
+
 export function textForWhatsapp({
     namaLengkap = 'Nama/Perusahaan',
     jenisWebsite = 'Jenis website',

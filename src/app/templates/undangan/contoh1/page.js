@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import MusicButton from './MusicButton';
 import WeddingSection from './WeddingSection';
 
 export const metadata = {
@@ -69,10 +71,8 @@ const images = [
 ];
 
 const Page = () => {
-  
-
   return (
-    <div>
+    <div className='bg-black'>
       <WeddingSection images={images}/>
     </div>
   );
