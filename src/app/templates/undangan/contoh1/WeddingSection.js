@@ -14,7 +14,7 @@ function OpenWedding({images}) {
 
     return (
         <div className='overflow-hidden h-screen'>
-            <div className='overflow-hidden'>
+            <div className='overflow-hidden absolute inset-0'>
                 <ImageSlideShow images={images}/>
             </div>
             <div className='overflow-hidden absolute z-20 inset-0 flex justify-center items-center bg-black/50 text-yellow-100'>
