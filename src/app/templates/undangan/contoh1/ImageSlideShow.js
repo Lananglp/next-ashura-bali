@@ -15,7 +15,7 @@ function ImageSlideShow({ images }) {
     }, []);
 
     return (
-        <AnimatePresence mode='wait'>
+        <AnimatePresence mode='wait' initial={false}>
             <motion.img
                 key={index}
                 src={images[index]}
