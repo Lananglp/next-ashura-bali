@@ -1,5 +1,6 @@
 'use client'
 import { formatDate } from '@/helper/Helper';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
 function DateCountdown() {
@@ -38,30 +39,32 @@ function DateCountdown() {
 
     return (
         <>
-            <p className='mx-auto w-72 text-2xl font-semibold mb-4'>{formatDate(tanggalAcara)}</p>
+            <p className='mx-auto w-72 text-xl font-semibold mb-4'>{formatDate(tanggalAcara)}</p>
             {isClient && timeLeft.days !== undefined ? (
                 <div className='flex flex-grow justify-center gap-4'>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>{timeLeft.days}</p>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-auto  min-w-20 absolute -start-12 -top-10' />
+                            <p className='font-light'>{timeLeft.days}</p>
                         </div>
                         <p className='mt-2'>Hari</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>{timeLeft.hours}</p>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <p className='font-light'>{timeLeft.hours}</p>
                         </div>
                         <p className='mt-2'>Jam</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>{timeLeft.minutes}</p>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <p className='font-light'>{timeLeft.minutes}</p>
                         </div>
                         <p className='mt-2'>Menit</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>{timeLeft.seconds}</p>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                        <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-auto  min-w-20 absolute -end-12 -top-10' />
+                            <p className='font-light'>{timeLeft.seconds}</p>
                         </div>
                         <p className='mt-2'>Detik</p>
                     </div>
@@ -69,26 +72,26 @@ function DateCountdown() {
             ) : (
                 <div className='flex flex-grow justify-center gap-4'>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>--</p>
+                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Hari</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>--</p>
+                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Jam</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>--</p>
+                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Menit</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-14 w-14 flex justify-center items-center'>
-                            <p className='text-lg font-light'>--</p>
+                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Detik</p>
                     </div>

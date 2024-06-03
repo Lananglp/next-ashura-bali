@@ -17,7 +17,7 @@ const birthstone = Birthstone({
 
 function OpenWedding({images}) {
 
-    const [open, setOpen] = useState(true); // ubah jadi false
+    const [open, setOpen] = useState(false); // ubah jadi false
     // const audioRef = useRef(new Audio('/audio/soundWedding.mp3'));
     const [music, setMusic] = useState(false);
 
@@ -50,7 +50,7 @@ function OpenWedding({images}) {
 
     return (
         <>
-            {/* <AnimatePresence>
+            <AnimatePresence>
                 {!open &&
                     <motion.div 
                         className='h-screen bg-black'
@@ -62,26 +62,32 @@ function OpenWedding({images}) {
                             <ImageSlideShow images={images}/>
                         </div>
                         <div className='overflow-hidden absolute z-20 inset-0 flex justify-center items-center bg-black/50 text-yellow-100'>
-                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={128} height={128} className='absolute z-0 start-2 top-4 rotate-[3deg]' />
-                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={128} height={128} className='absolute z-0 end-2 top-4 -rotate-[3deg]' />
-                            <Image priority src='/image/border-b-l.svg' alt='flower.svg' width={128} height={128} className='absolute z-0 start-2 bottom-2' />
-                            <Image priority src='/image/border-b-r.svg' alt='flower.svg' width={128} height={128} className='absolute z-0 end-2 bottom-2' />
-                            <div className='bg-gradient-radial from-yellow-300/15 from-[0%] to-transparent to-[70%] absolute -z-10 -start-32 xl:start-1/4 top-24 w-96 h-96' />
-                            <div className='bg-gradient-radial from-yellow-300/15 from-[0%] to-transparent to-[70%] absolute -z-10 -end-32 xl:end-1/4 bottom-24 w-96 h-96' />
+                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                            <Image priority src='/image/border-b-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 bottom-2' />
+                            <Image priority src='/image/border-b-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 bottom-2' />
+                            {/* <div className='bg-gradient-radial from-yellow-300/15 from-[0%] to-transparent to-[70%] absolute -z-10 -start-32 xl:start-1/4 top-24 w-96 h-96' />
+                            <div className='bg-gradient-radial from-yellow-300/15 from-[0%] to-transparent to-[70%] absolute -z-10 -end-32 xl:end-1/4 bottom-24 w-96 h-96' /> */}
                             <div className='bg-gradient-radial from-black/25 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96' />
                             <div className='text-center'>
                                 <h2 className={`${birthstone.className} mb-4 text-5xl`}>Dwika &amp; Erina</h2>
-                                <p className='mx-auto w-72 mb-2'>Kami akan segera melangsungkan pernikahan pada:</p>
+                                <p className='mx-auto w-72 mb-2 text-sm'>Kami akan segera melangsungkan pernikahan pada:</p>
                                 <DateCountdown/>
-                                <p className='mx-auto w-72 mt-12 mb-2'>Kepada Yth:</p>
-                                <p className='mx-auto w-72 text-2xl mb-4'>Kadek Lanang Lanusa Putera</p>
+                                <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-auto w-56 mx-auto mt-2' />
+                                <p className='mx-auto w-72 mb-2'>Kepada Yth:</p>
+                                <p className='mx-auto w-72 text-xl mb-4'>Kadek Lanang Lanusa Putera</p>
 
-                                <button onClick={handleOpen} type="button" className='mt-8 border border-yellow-100 rounded-lg bg-black/25 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/25 px-8 py-4'>Buka Undangan</button>
+                                <div className='inline-block relative'>
+                                    <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
+                                    <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
+                                    <button onClick={handleOpen} type="button" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'>Buka Undangan</button>
+                                    <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                </div>
                             </div>
                         </div>
                     </motion.div>
                 }
-            </AnimatePresence> */}
+            </AnimatePresence>
             <AnimatePresence>
                 {open && 
                     <motion.div
