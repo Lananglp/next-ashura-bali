@@ -70,8 +70,8 @@ function OpenWedding({images}) {
                             <div className='bg-gradient-radial from-yellow-300/15 from-[0%] to-transparent to-[70%] absolute -z-10 -end-32 xl:end-1/4 bottom-24 w-96 h-96' /> */}
                             <div className='bg-gradient-radial from-black/25 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96' />
                             <div className='text-center'>
-                                <h2 className={`${birthstone.className} mb-4 text-5xl`}>Dwika &amp; Erina</h2>
-                                <p className='mx-auto w-72 mb-2 text-sm'>Kami akan segera melangsungkan pernikahan pada:</p>
+                                <h2 className={`${birthstone.className} mb-4 text-5xl`}>You &amp; Me</h2>
+                                <p className='mx-auto w-72 mb-2 text-sm'>Kami akan segera melangsungkan (Jenis acara) pada:</p>
                                 <DateCountdown/>
                                 <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-auto w-56 mx-auto mt-2' />
                                 <p className='mx-auto w-72 mb-2'>Kepada Yth:</p>
@@ -115,7 +115,7 @@ function OpenWedding({images}) {
                             <Image src='/image/flower-r.svg' alt='Image1' width={0} height={0} className='w-24 h-24 opacity-75 absolute top-20 end-0'/> */}
                             <div className='absolute inset-x-0 -top-16'>
                                 <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Pawiwahan</p>
-                                <h1 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Dwika &amp; Erina</h1>
+                                <h1 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>You &amp; Me</h1>
                             </div>
                             <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p>
                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
