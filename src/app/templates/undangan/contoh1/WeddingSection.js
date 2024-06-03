@@ -184,8 +184,16 @@ function OpenWedding({images}) {
                             <p className='mb-6 px-4 tracking-wide text-center font-light text-lg'>17:00 s/d Selesai</p>
                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
                             <p className='mb-6 px-8 tracking-wide text-center font-light'>Br. Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
-                            <div className='mb-6 text-center'>
+                            {/* <div className='mb-6 text-center'>
                                 <Link href='/' className='inline-block px-4 py-2 border border-yellow-200 text-yellow-200 text-center'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</Link>
+                            </div> */}
+                            <div className='text-center'>
+                                <div className='inline-block relative mb-6'>
+                                    <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
+                                    <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
+                                    <button onClick={handleOpen} type="button" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</button>
+                                    <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                </div>
                             </div>
                             {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
                         </div>
