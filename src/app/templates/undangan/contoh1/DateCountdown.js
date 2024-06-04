@@ -3,9 +3,7 @@ import { formatDate } from '@/helper/Helper';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
-function DateCountdown() {
-
-    const tanggalAcara = new Date('2024-06-04T00:00:00');
+function DateCountdown({tanggalAcara}) {
 
     const calculateTimeLeft = () => {
         const currentTime = new Date();
@@ -72,25 +70,27 @@ function DateCountdown() {
             ) : (
                 <div className='flex flex-grow justify-center gap-4'>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-auto  min-w-20 absolute -start-12 -top-10' />
                             <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Hari</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
                             <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Jam</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
                             <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Menit</p>
                     </div>
                     <div>
-                        <div className='border border-yellow-100 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                        <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
+                            <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-auto  min-w-20 absolute -end-12 -top-10' />
                             <p className='font-light'>--</p>
                         </div>
                         <p className='mt-2'>Detik</p>

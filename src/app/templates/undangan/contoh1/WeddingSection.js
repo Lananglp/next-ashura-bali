@@ -5,17 +5,18 @@ import React, { useEffect, useRef, useState } from 'react'
 import DateCountdown from './DateCountdown';
 import ImageSlideShow from './ImageSlideShow';
 import { AnimatePresence, motion } from 'framer-motion';
-import { handleMusic } from '@/helper/Helper';
+import { formatDate, handleMusic } from '@/helper/Helper';
 import { FaMusic, FaPause, FaPlay } from 'react-icons/fa6';
 import Link from 'next/link';
 import { FaMapMarkerAlt } from "react-icons/fa";
+import GoogleMap from './GoogleMap';
 
 const birthstone = Birthstone({
     subsets: ["latin"],
     weight: ["400"],
 });
 
-function OpenWedding({images}) {
+function OpenWedding({images, tanggalAcara}) {
 
     const [open, setOpen] = useState(false); // ubah jadi false
     // const audioRef = useRef(new Audio('/audio/soundWedding.mp3'));
@@ -72,7 +73,7 @@ function OpenWedding({images}) {
                             <div className='text-center'>
                                 <h2 className={`${birthstone.className} mb-4 text-5xl`}>You &amp; Me</h2>
                                 <p className='mx-auto w-72 mb-2 text-sm'>Kami akan segera melangsungkan (Jenis acara) pada:</p>
-                                <DateCountdown/>
+                                <DateCountdown tanggalAcara={tanggalAcara}/>
                                 <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-auto w-56 mx-auto mt-2' />
                                 <p className='mx-auto w-72 mb-2'>Kepada Yth:</p>
                                 <p className='mx-auto w-72 text-xl mb-4'>Kadek Lanang Lanusa Putera</p>
@@ -119,7 +120,17 @@ function OpenWedding({images}) {
                             </div>
                             <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p>
                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                            <p className='mb-4 px-4 tracking-wide text-center font-light text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</p>
+                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</p>
+                        </div>
+                        <div className='relative px-4 py-24'>
+                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Om Swastyastu</h2>
+                            {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
+                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada Upacara Manusa Yadnya Pawiwahan putra dan putri kami.</p>
                         </div>
 
                         <div className='relative'>
@@ -179,9 +190,11 @@ function OpenWedding({images}) {
                             <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
                             <div className='absolute inset-x-0 -top-16'>
                                 <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Waktu dan Lokasi</p>
-                                <h1 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Acara Kami</h1>
+                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Acara Kami</h2>
                             </div>
-                            <p className='mb-6 px-4 tracking-wide text-center font-light text-lg'>17:00 s/d Selesai</p>
+                            <p className='mb-6 tracking-wide text-center font-light'>Merupakan suatu kehormatan & kebahagian kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberi doa restu pada :</p>
+                            <p className='text-yellow-200 tracking-wide text-center font-medium text-2xl'>{formatDate(tanggalAcara)}</p>
+                            <p className='mb-6 tracking-wide text-center font-light text-lg'>17:00 s/d Selesai</p>
                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
                             <p className='mb-6 px-8 tracking-wide text-center font-light'>Br. Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
                             {/* <div className='mb-6 text-center'>
@@ -196,6 +209,14 @@ function OpenWedding({images}) {
                                 </div>
                             </div>
                             {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
+                        </div>
+
+                        <div className='relative p-8'>
+                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                            <GoogleMap/>
                         </div>
 
                         {/* <motion.button 
