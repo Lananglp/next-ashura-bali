@@ -211,13 +211,34 @@ function OpenWedding({images, tanggalAcara}) {
                             {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
                         </div>
 
-                        <div className='relative p-8'>
+                        <GoogleMap/>
+
+                        {images && images.map((i, index) => {
+                            return (
+                                <Image key={index} src={i} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
+                            )
+                        })}
+
+                        <div className='relative px-4 py-40'>
                             <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
                             <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
                             <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
                             <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <GoogleMap/>
+                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Matur Suksma</h2>
+                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Sampai jumpa di hari bahagia kami</p>
+                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                            <div className='text-center text-zinc-500'>
+                                <p>© {new Date().getFullYear()} Ashura Bali. All Rights Reserved.</p>
+                            </div>
                         </div>
+
+                        {/* <div className='relative p-3'>
+                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute top-0 end-0 rotate-180'/>
+                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute top-0 start-0 rotate-180'/>
+                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                            <GoogleMap/>
+                        </div> */}
 
                         {/* <motion.button 
                             onClick={toggleMusic}
@@ -225,6 +246,9 @@ function OpenWedding({images, tanggalAcara}) {
                         >
                             {music ? <FaPause className=' animate-pulse'/> : <FaPlay/>}
                         </motion.button> */}
+                        {/* <footer className='bg-pink-950 border-t border-zinc-700 text-zinc-400 text-center text-sm px-4 py-8'>
+                            <p>© {new Date().getFullYear()} Ashura Bali. All Rights Reserved.</p>
+                        </footer> */}
                     </motion.div>
                 }
             </AnimatePresence>
