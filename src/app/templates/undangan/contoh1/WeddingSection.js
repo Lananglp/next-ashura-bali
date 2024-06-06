@@ -10,13 +10,14 @@ import { FaCheck, FaCircleExclamation, FaMusic, FaPaperPlane, FaPause, FaPlay, F
 import Link from 'next/link';
 import { FaMapMarkerAlt } from "react-icons/fa";
 import GoogleMap from './GoogleMap';
+import { MdContentCopy } from 'react-icons/md';
 
 const birthstone = Birthstone({
     subsets: ["latin"],
     weight: ["400"],
 });
 
-function OpenWedding({images, tanggalAcara}) {
+function OpenWedding({images, tanggalAcara, rekening}) {
 
     const [open, setOpen] = useState(true); // ubah jadi false
     // const audioRef = useRef(new Audio('/audio/soundWedding.mp3'));
@@ -49,6 +50,19 @@ function OpenWedding({images, tanggalAcara}) {
         }
     }, [open]);
 
+    const [copyRek, setCopyRek] = useState(false);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(rekening).then(() => {
+        setCopyRek(true);
+        setTimeout(() => {
+            setCopyRek(false);
+        }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    };
+
     return (
         <>
             <AnimatePresence>
@@ -71,12 +85,12 @@ function OpenWedding({images, tanggalAcara}) {
                             <div className='bg-gradient-radial from-yellow-300/15 from-[0%] to-transparent to-[70%] absolute -z-10 -end-32 xl:end-1/4 bottom-24 w-96 h-96' /> */}
                             <div className='bg-gradient-radial from-black/25 from-[0%] to-transparent to-[70%] absolute -z-10 start-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96' />
                             <div className='text-center'>
-                                <h2 className={`${birthstone.className} mb-4 text-5xl`}>You &amp; Me</h2>
+                                <h2 className={`${birthstone.className} mb-4 text-5xl`}>Sing &amp; Tawang</h2>
                                 <p className='mx-auto w-72 mb-2 text-sm'>Kami akan segera melangsungkan (Jenis acara) pada:</p>
                                 <DateCountdown tanggalAcara={tanggalAcara}/>
                                 <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-auto w-56 mx-auto mt-2' />
                                 <p className='mx-auto w-72 mb-2'>Kepada Yth:</p>
-                                <p className='mx-auto w-72 text-xl mb-4'>Kadek Lanang Lanusa Putera</p>
+                                <p className='mx-auto w-72 text-xl mb-4'>I Gede Sing Tawang</p>
 
                                 <div className='inline-block relative'>
                                     <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
@@ -96,119 +110,295 @@ function OpenWedding({images, tanggalAcara}) {
                         animate={{ opacity: 1 }}
                         transition={{ ease: 'easeInOut', duration: 2.5 }}
                     >
-                        <div className='relative'>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[70%] to-[100%]'/>
-                            <Image src='/image/border-t-l-2.svg' alt='Image1' width={0} height={0} className='w-32 h-auto absolute top-0 start-0'/>
-                            <Image src='/image/border-t-r-2.svg' alt='Image1' width={0} height={0} className='w-32 h-auto absolute top-0 end-0'/>
-                            <div className='absolute inset-x-0 top-6'>
-                                <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-32 h-auto opacity-75'/>
-                            </div>
-                            <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-16 h-16 opacity-75 absolute bottom-8 start-2'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-16 h-16 opacity-75 absolute bottom-8 end-2'/>
-                        </div>
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s border-yellow-300/15'>
+                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/75 from-[70%] to-[100%]'/>
+                                        <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='block md:hidden w-36 h-36 opacity-75 absolute -top-4 -start-8 rotate-6'/>
+                                        <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='block md:hidden w-36 h-36 opacity-75 absolute -top-4 -end-8 -rotate-6'/>
+                                        <div className='block md:hidden absolute inset-x-0 top-6'>
+                                            <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-40 h-auto opacity-75'/>
+                                        </div>
+                                        <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                    </div>
 
-                        <div className='relative px-4 py-12'>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            {/* <Image src='/image/flower-l.svg' alt='Image1' width={0} height={0} className='w-24 h-24 opacity-75 absolute -top-12 start-0'/>
-                            <Image src='/image/flower-r.svg' alt='Image1' width={0} height={0} className='w-24 h-24 opacity-75 absolute top-20 end-0'/> */}
-                            <div className='absolute inset-x-0 -top-16'>
-                                <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Pawiwahan</p>
-                                <h1 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>You &amp; Me</h1>
-                            </div>
-                            <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p>
-                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</p>
-                        </div>
-                        <div className='relative px-4 py-24'>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Om Swastyastu</h2>
-                            {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
-                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada Upacara Manusa Yadnya Pawiwahan putra dan putri kami.</p>
-                        </div>
-
-                        <div className='relative'>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
-                            <Image src='/image/undangan/man.jpeg' alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
-                        </div>
-
-                        <div className='relative px-4 py-12'>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <div className='absolute inset-x-0 -top-16'>
-                                <h2 className={`${birthstone.className} text-center mb-2 text-5xl text-yellow-200`}>Bro Dwika</h2>
-                                <p className='tracking-wide text-center text-yellow-100 font-light'>I Made Dwika Ananta Gunawan, S.kom</p>
-                            </div>
-                            <p className='mb-2 tracking-wide text-center font-light text-sm'>Putra pertama dari pasangan:</p>
-                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>I Wayan Gredeg Jaya</p>
-                            <p className='mb-2 tracking-wide text-center font-light text-4xl'>&amp;</p>
-                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Ni Ketut Laravel Putriyani</p>
-                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Br.Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
-                        </div>
-
-                        <div className='relative'>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 end-2 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 start-2 rotate-180'/>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
-                            <Image src='/image/undangan/woman.jpeg' alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
-                        </div>
-
-                        <div className='relative px-4 py-12'>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <div className='absolute inset-x-0 -top-16'>
-                                <h2 className={`${birthstone.className} text-center mb-2 text-5xl text-yellow-200`}>Mbak Erina</h2>
-                                <p className='tracking-wide text-center text-yellow-100 font-light'>Ni Made Erina Cipta Yanti</p>
-                            </div>
-                            <p className='mb-2 tracking-wide text-center font-light text-sm'>Putri kedua dari pasangan:</p>
-                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>I Putu Tigtig putra</p>
-                            <p className='mb-2 tracking-wide text-center font-light text-4xl'>&amp;</p>
-                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Ni Luh Syanti Sekar</p>
-                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Br.Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
-                        </div>
-
-                        <div className='relative'>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 end-2 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 start-2 rotate-180'/>
-                            <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
-                            <Image src={images[2]} alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
-                        </div>
-
-                        <div className='relative px-4 py-12'>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <div className='absolute inset-x-0 -top-16'>
-                                <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Waktu dan Lokasi</p>
-                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Acara Kami</h2>
-                            </div>
-                            <p className='mb-6 tracking-wide text-center font-light'>Merupakan suatu kehormatan & kebahagian kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberi doa restu pada :</p>
-                            <p className='text-yellow-200 tracking-wide text-center font-medium text-2xl'>{formatDate(tanggalAcara)}</p>
-                            <p className='mb-6 tracking-wide text-center font-light text-lg'>17:00 s/d Selesai</p>
-                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                            <p className='mb-6 px-8 tracking-wide text-center font-light'>Br. Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
-                            {/* <div className='mb-6 text-center'>
-                                <Link href='/' className='inline-block px-4 py-2 border border-yellow-200 text-yellow-200 text-center'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</Link>
-                            </div> */}
-                            <div className='text-center'>
-                                <div className='inline-block relative mb-6'>
-                                    <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
-                                    <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
-                                    <button onClick={handleOpen} type="button" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</button>
-                                    <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12'>
+                                        <div>
+                                            <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px', rotate: '6deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='hidden md:block absolute -top-4 -start-8'>
+                                                <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
+                                            </motion.div>
+                                            <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px', rotate: '6deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='hidden md:block absolute -top-4 -end-8'>
+                                                <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
+                                            </motion.div>
+                                            <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='absolute bottom-0 start-0'>
+                                                <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
+                                            </motion.div>
+                                            <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='absolute bottom-0 end-0'>
+                                                <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
+                                            </motion.div>
+                                            <div className='absolute md:static inset-x-0 -top-16 text-center md:px-12'>
+                                                <p className='mb-2 tracking-wide text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Pawiwahan</p>
+                                                <h1 className={`${birthstone.className} mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>My Name &amp; Unkown</h1>
+                                            </div>
+                                            <p className='px-8 md:px-4 xl:px-12 italic tracking-wide text-yellow-100 text-center font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p>
+                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <p className='mb-4 xl:mb-0 px-12 md:px-6 xl:px-12 tracking-wide font-light text-center text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
+                        </div>
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row bg-gradient-to-b from-transparent to-yellow-300/5 md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-24'>
+                                        <div>
+                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Om Swastyastu</h2>
+                                            {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
+                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada Upacara Manusa Yadnya Pawiwahan putra dan putri kami.</p>
+                                        </div>
+                                    </div>
+                                    <div className='md:basis-6/12 xl:basis-5/12 hidden md:block md:border-s border-yellow-300/15'>
+                                        <Image priority src={images[2]} alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s border-yellow-300/15'>
+                                        <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                        <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                                        <Image src='/image/undangan/man.jpeg' alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                    </div>
+
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12'>
+                                        <div>
+                                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='hidden md:block w-36 h-36 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='hidden md:block w-36 h-36 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <div className='absolute md:static inset-x-0 -top-16'>
+                                                <h2 className={`${birthstone.className} text-center mb-2 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Sing</h2>
+                                                <p className='tracking-wide text-center text-yellow-100 font-light'>I Gede Sing Tawang</p>
+                                            </div>
+                                            <p className='mb-2 tracking-wide text-center font-light text-sm'>Putra pertama dari pasangan:</p>
+                                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>I Gede React Next Js</p>
+                                            <p className='mb-2 tracking-wide text-center font-light text-4xl'>&amp;</p>
+                                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Ni Putu Laravel artisan</p>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Br.Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s md:border-yellow-300/15'>
+                                        <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-100 absolute top-2 end-2 rotate-180'/>
+                                        <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-100 absolute top-2 start-2 rotate-180'/>
+                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                                        <Image src='/image/undangan/woman.jpeg' alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                    </div>
+
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12'>
+                                        <div>
+                                            <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='hidden md:block w-36 h-36 opacity-75 absolute -top-4 -start-8 rotate-6'/>
+                                            <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='hidden md:block w-36 h-36 opacity-75 absolute -top-4 -end-8 -rotate-6'/>
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <div className='absolute md:static inset-x-0 -top-16'>
+                                                <h2 className={`${birthstone.className} text-center mb-2 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Tawang</h2>
+                                                <p className='tracking-wide text-center text-yellow-100 font-light'>Ni Made Sing Tawang</p>
+                                            </div>
+                                            <p className='mb-2 tracking-wide text-center font-light text-sm'>Putri kedua dari pasangan:</p>
+                                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>I Putu React Next Js</p>
+                                            <p className='mb-2 tracking-wide text-center font-light text-4xl'>&amp;</p>
+                                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Ni Putu Laravel Artisan</p>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Br.Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s md:border-yellow-300/15'>
+                                        <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 end-2 rotate-180'/>
+                                        <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 start-2 rotate-180'/>
+                                        <div className='absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                                        <Image src={images[2]} alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
+                                        <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                    </div>
+
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12 md:py-0'>
+                                        <div>
+                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='hidden md:block h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='hidden md:block h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <div className='absolute md:static inset-x-0 -top-16'>
+                                                <p className='mb-2 tracking-wide text-center text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Waktu dan Lokasi</p>
+                                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Acara Kami</h2>
+                                            </div>
+                                            <p className='inline-block md:hidden mb-6 tracking-wide text-center font-light md:text-sm'>Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara kami :</p>
+                                            <p className='hidden md:inline-block md:px-12 mb-6 tracking-wide text-center font-light md:text-sm'>Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara kami :</p>
+                                            <p className='text-yellow-200 tracking-wide text-center font-medium text-2xl md:text-xl'>{formatDate(tanggalAcara)}</p>
+                                            <p className='mb-6 tracking-wide text-center font-light text-lg md:text-base'>17:00 s/d Selesai</p>
+                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <p className='mb-6 md:mb-0 px-8 tracking-wide text-center font-light md:text-sm'>Br. Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
+                                            {/* <div className='mb-6 text-center'>
+                                                <Link href='/' className='inline-block px-4 py-2 border border-yellow-200 text-yellow-200 text-center'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</Link>
+                                            </div> */}
+                                            <div className='text-center'>
+                                                <div className='inline-block relative mb-6 md:mb-0'>
+                                                    <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
+                                                    <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
+                                                    <button onClick={handleOpen} type="button" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</button>
+                                                    <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                                </div>
+                                            </div>
+                                            {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* <GoogleMap/> */}
@@ -226,148 +416,243 @@ function OpenWedding({images, tanggalAcara}) {
                             })}
                         </div> */}
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-2">
-                            <div className="grid gap-2">
-                                <div>
-                                    <Image src={images[0]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[2]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                            </div>
-                            <div className="grid gap-2">
-                                <div>
-                                    <Image src={images[3]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[0]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                            </div>
-                            <div className="grid gap-2">
-                                <div>
-                                    <Image src={images[2]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[3]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                            </div>
-                            <div className="grid gap-2">
-                                <div>
-                                    <Image src={images[2]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[3]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
-                                </div>
-                                <div>
-                                    <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover'/>
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-2 md:mb-32">
+                                    <div className="grid gap-2">
+                                        <div>
+                                            <Image src={images[0]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[2]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-2">
+                                        <div>
+                                            <Image src={images[3]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[0]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-2">
+                                        <div>
+                                            <Image src={images[2]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[3]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                    </div>
+                                    <div className="grid gap-2">
+                                        <div>
+                                            <Image src={images[2]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[3]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                        <div>
+                                            <Image src={images[1]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-
-                        <div className='relative px-4 pt-4 pb-12'>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            
-                            <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-2/3 h-auto opacity-75'/>
-                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Buku Tamu</h2>
-                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Ucapkan sesuatu untuk hari berbahagia</p>
-
-                            <div className='mt-12'>
-                                <form>
-                                    <div>
-                                        {/* <div>
-                                            <label htmlFor="error" className="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Name anda</label>
-                                            <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." />
-                                            <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p>
-                                        </div> */}
-                                        <div className='mb-6'>
-                                            <label htmlFor="namaAnda" className="block mb-2 text-sm font-medium text-white">Name anda</label>
-                                            <input type="text" id="namaAnda" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder="Ketik disini. . ." />
-                                            {/* <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." /> */}
-                                            {/* <p className="mt-2 text-xs text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p> */}
-                                        </div>
-
-                                        <div className='mb-6'>
-                                            <label htmlFor="kehadiran" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kehadiran</label>
-                                            <select id="kehadiran" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2">
-                                                <option>Pilih</option>
-                                                <option value="1">Hadir</option>
-                                                <option value="2">Masih ragu-ragu</option>
-                                                <option value="3">Tergantung duase</option>
-                                                <option value="0">Tidak Hadir</option>
-                                            </select>
-                                        </div>
-                                        <div className='mb-2'>
-                                            <label htmlFor="ucapan" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ucapan</label>
-                                            <textarea id="ucapan" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder='Ketik disini. . .' rows={6}></textarea>
-                                        </div>
-                                        <div className='text-center'>
-                                            <div className='inline-block relative mb-6'>
-                                                <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
-                                                <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
-                                                <button type="submit" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaPaperPlane className='inline me-1 mb-0.5'/> Kirim ucapan</button>
-                                                <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-5/12 hidden md:block'>
+                                        <Image priority src={images[2]} alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                    </div>
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 pt-24 md:pt-8 pb-12 md:pb-0'>
+                                        <div>
+                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-2/3 h-auto opacity-75'/>
+                                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Kado Digital</h2>
+                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <p className='inline-block md:hidden mb-12 md:mb-2 px-12 tracking-wide text-center font-light text-sm'>Doa restu Anda adalah anugerah terindah bagi kami. Namun, jika Anda ingin memberikan ungkapan tanda kasih melalui kado, Anda dapat melakukannya secara digital.</p>
+                                            <p className='hidden md:inline-block mb-12 md:mb-2 px-12 tracking-wide text-center font-light text-sm'>Doa restu Anda adalah anugerah terindah. Untuk tanda kasih, kado dapat diberikan secara digital.</p>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>No rekening:</p>
+                                            <p className='text-center tracking-widest text-lg text-yellow-200'>{rekening ? rekening : '-'}</p>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>BANK BRI</p>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>I Made Grubug Wayah</p>
+                                            <div className='text-center'>
+                                                <button onClick={handleCopy} type="button" className='inline-block ring-1 ring-transparent focus:ring-yellow-300 text-sm bg-zinc-900 rounded px-4 py-1'>
+                                                    {copyRek ? (
+                                                        <FaCheck className='inline me-1 mb-0.5'/>
+                                                    ) : (
+                                                        <MdContentCopy className='inline me-1 mb-0.5'/>
+                                                    )}
+                                                    {copyRek ? 'Tersalin' : 'Salin'}
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                            {/* <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 end-0 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 start-0 rotate-180'/> */}
                         </div>
 
-                        <div className='relative px-8 py-8'>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <div className='flex items-start gap-4 my-4'>
-                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
-                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+
+                        <div className='md:flex md:flex-row md:border md:border-yellow-300/15 overflow-hidden md:mb-32'>
+                            <div className='basis-7/12 relative px-4 pt-24 md:pt-12 pb-12'>
+                                <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Buku Tamu</h2>
+                                <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Ucapkan sesuatu untuk hari berbahagia</p>
+
+                                <div className='mt-12'>
+                                    <form>
+                                        <div>
+                                            {/* <div>
+                                                <label htmlFor="error" className="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Name anda</label>
+                                                <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." />
+                                                <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p>
+                                            </div> */}
+                                            <div className='mb-6'>
+                                                <label htmlFor="namaAnda" className="block mb-2 text-sm font-medium text-white">Name anda</label>
+                                                <input type="text" id="namaAnda" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder="Ketik disini. . ." />
+                                                {/* <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." /> */}
+                                                {/* <p className="mt-2 text-xs text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p> */}
+                                            </div>
+
+                                            <div className='mb-6'>
+                                                <label htmlFor="kehadiran" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kehadiran</label>
+                                                <select id="kehadiran" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2">
+                                                    <option>Pilih</option>
+                                                    <option value="1">Hadir</option>
+                                                    <option value="2">Masih ragu-ragu</option>
+                                                    <option value="3">Tergantung duase</option>
+                                                    <option value="0">Tidak Hadir</option>
+                                                </select>
+                                            </div>
+                                            <div className='mb-2'>
+                                                <label htmlFor="ucapan" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ucapan</label>
+                                                <textarea id="ucapan" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder='Ketik disini. . .' rows={6}></textarea>
+                                            </div>
+                                            <div className='text-center'>
+                                                <div className='inline-block relative mb-6'>
+                                                    <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
+                                                    <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
+                                                    <button type="submit" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaPaperPlane className='inline me-1 mb-0.5'/> Kirim ucapan</button>
+                                                    <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div>
-                                    <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
-                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaCheck className='inline me-1 mb-0.5 text-green-400'/> Hadir</span></p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                {/* <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 end-0 rotate-180'/>
+                                <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 start-0 rotate-180'/> */}
+                            </div>
+
+                            <div className='basis-5/12 relative md:flex md:justify-center md:items-center px-8 md:px-0 py-8 md:border-s md:border-yellow-300/15'>
+                                <div className='md:h-[80vh] overflow-y-auto'>
+                                    <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                    <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                    <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                    <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                    <p className='mb-4 px-12 tracking-wide text-center font-light'>99 Ucapan</p>
+                                    <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                    <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                        <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                            <FaUser className='h-4 w-4 text-zinc-500'/>
+                                        </div>
+                                        <div>
+                                            <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                            <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaCheck className='inline me-1 mb-0.5 text-green-400'/> Hadir</span></p>
+                                            <p className='font-light md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                        </div>
+                                    </div>
+                                    <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                    <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                        <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                            <FaUser className='h-4 w-4 text-zinc-500'/>
+                                        </div>
+                                        <div>
+                                            <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                            <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaXmark className='inline me-1 mb-0.5 text-red-500'/> Tidak Hadir</span></p>
+                                            <p className='font-light md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                        </div>
+                                    </div>
+                                    <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                    <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                        <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                            <FaUser className='h-4 w-4 text-zinc-500'/>
+                                        </div>
+                                        <div>
+                                            <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                            <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
+                                            <p className='font-light md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                        </div>
+                                    </div>
+                                    <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
                                 </div>
                             </div>
-                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
-                            <div className='flex items-start gap-4 my-4'>
-                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
-                                    <FaUser className='h-4 w-4 text-zinc-500'/>
-                                </div>
-                                <div>
-                                    <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
-                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaXmark className='inline me-1 mb-0.5 text-red-500'/> Tidak Hadir</span></p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
-                                </div>
-                            </div>
-                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
-                            <div className='flex items-start gap-4 my-4'>
-                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
-                                    <FaUser className='h-4 w-4 text-zinc-500'/>
-                                </div>
-                                <div>
-                                    <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
-                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
-                                </div>
-                            </div>
-                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
                         </div>
 
-                        <div className='relative px-4 py-40'>
+                        <div className='relative px-4 py-40 md:border md:border-yellow-300/15 overflow-hidden'>
                             <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
                             <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
                             <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>

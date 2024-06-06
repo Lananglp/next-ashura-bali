@@ -10,7 +10,8 @@
   @apply bg-zinc-800 rounded-lg;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-pink-900/0 via-pink-600 to-pink-900/0 rounded-lg;
+  /* @apply bg-gradient-to-b from-pink-900/0 via-pink-600 to-pink-900/0 rounded-lg; */
+  @apply bg-zinc-300 rounded-lg;
 }
 
 body {

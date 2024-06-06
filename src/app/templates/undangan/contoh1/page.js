@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import MusicButton from './MusicButton';
 import WeddingSection from './WeddingSection';
+import '../contoh1/contoh1.css';
 
 export const metadata = {
   title: "Wedding - You & Me",
@@ -69,13 +70,19 @@ const images = [
   '/image/undangan/image3.jpg',
   '/image/undangan/image4.jpg',
 ];
-
 const tanggalAcara = new Date('2024-06-10T00:00:00');
+const rekening = '502948668385';
 
 const Page = () => {
   return (
-    <div className='bg-black'>
-      <WeddingSection images={images} tanggalAcara={tanggalAcara}/>
+    <div className='container mx-auto bg-black'>
+      {/* <div className='px-0 lg:p-32 xl:px-64 xl:py-32'> */}
+      {/* <div className='mx-0 md:mx-12 lg:mx-24 xl:mx-32'> */}
+        {/* <div className='md:border md:border-yellow-300/15 overflow-x-hidden'> */}
+        <div>
+          <WeddingSection images={images} tanggalAcara={tanggalAcara} rekening={rekening}/>
+        </div>
+      {/* </div> */}
     </div>
   );
 };
