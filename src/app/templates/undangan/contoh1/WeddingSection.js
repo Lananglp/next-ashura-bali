@@ -138,13 +138,19 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                 </motion.div>
                                 <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:md:mb-32'>
                                     <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s border-yellow-300/15'>
-                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/75 from-[70%] to-[100%]'/>
-                                        <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='block md:hidden w-36 h-36 opacity-75 absolute -top-4 -start-8 rotate-6'/>
-                                        <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='block md:hidden w-36 h-36 opacity-75 absolute -top-4 -end-8 -rotate-6'/>
-                                        <div className='block md:hidden absolute inset-x-0 top-6'>
+                                        <motion.div initial={{ opacity: 0, zIndex: '10' }} viewport={{ once: true }} whileInView={{ opacity: 1, zIndex: '10' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2, duration: 1.5 }} className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/75 from-[70%] to-[100%]'/>
+                                        <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px', rotate: '6deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='block md:hidden absolute z-20 -top-4 -start-8'>
+                                            <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
+                                        </motion.div>
+                                        <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px', rotate: '-6deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '-6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='block md:hidden absolute z-20 -top-4 -end-8'>
+                                            <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
+                                        </motion.div>
+                                        <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px', zIndex: '10' }} viewport={{ once: true }} whileInView={{ opacity: 1, translateX: '0px', translateY: '0px', zIndex: '10' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='block md:hidden absolute inset-x-0 top-6'>
                                             <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-40 h-auto opacity-75'/>
-                                        </div>
-                                        <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                        </motion.div>
+                                        <motion.div initial={{ opacity: 0 }} viewport={{ once: true }} whileInView={{ opacity: 1 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2, duration: 1.5 }}>
+                                            <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full h-[512px] md:h-full md:aspect-[4/5] object-cover'/>
+                                        </motion.div>
                                         <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                                     </div>
 
@@ -163,12 +169,12 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                 <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                             </motion.div>
                                             <div className='absolute md:static inset-x-0 -top-16 text-center md:px-12'>
-                                                <p className='mb-2 tracking-wide text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Pawiwahan</p>
-                                                <h1 className={`${birthstone.className} mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>My Name &amp; Unkown</h1>
+                                                <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.8, duration: 1.5 }} className='mb-2 tracking-wide text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Pawiwahan</motion.p>
+                                                <motion.h1 initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.7, duration: 1.5 }} className={`${birthstone.className} mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>My Name &amp; Unkown</motion.h1>
                                             </div>
-                                            <p className='px-8 md:px-4 xl:px-12 italic tracking-wide text-yellow-100 text-center font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p>
-                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                            <p className='mb-4 xl:mb-0 px-12 md:px-6 xl:px-12 tracking-wide font-light text-center text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</p>
+                                            <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.6, duration: 1.5 }} className='px-8 md:px-4 xl:px-12 italic tracking-wide text-yellow-100 text-center font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</motion.p>
+                                            <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.5, duration: 1.5 }} className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.4, duration: 1.5 }} className='mb-4 xl:mb-0 px-12 md:px-6 xl:px-12 tracking-wide font-light text-center text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</motion.p>
                                         </div>
                                     </div>
                                 </div>
@@ -553,115 +559,206 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                         </div>
 
 
-                        <div className='md:flex md:flex-row md:border md:border-yellow-300/15 overflow-hidden md:mb-32'>
-                            <div className='basis-7/12 relative px-4 pt-24 md:pt-12 pb-12'>
-                                <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
-                                <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
-                                <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                                <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Buku Tamu</h2>
-                                <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Ucapkan sesuatu untuk hari berbahagia</p>
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='md:flex md:flex-row bg-gradient-to-b from-transparent to-yellow-300/5 md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 pt-24 md:pt-12 pb-12'>
+                                        <div className='w-full'>
+                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Buku Tamu</h2>
+                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Ucapkan sesuatu untuk hari berbahagia</p>
 
-                                <div className='mt-12'>
-                                    <form>
-                                        <div>
-                                            {/* <div>
-                                                <label htmlFor="error" className="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Name anda</label>
-                                                <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." />
-                                                <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p>
-                                            </div> */}
-                                            <div className='mb-6'>
-                                                <label htmlFor="namaAnda" className="block mb-2 text-sm font-medium text-white">Name anda</label>
-                                                <input type="text" id="namaAnda" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder="Ketik disini. . ." />
-                                                {/* <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." /> */}
-                                                {/* <p className="mt-2 text-xs text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p> */}
-                                            </div>
+                                            <div className='mt-12'>
+                                                <form>
+                                                    <div>
+                                                        {/* <div>
+                                                            <label htmlFor="error" className="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Name anda</label>
+                                                            <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." />
+                                                            <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p>
+                                                        </div> */}
+                                                        <div className='mb-6'>
+                                                            <label htmlFor="namaAnda" className="block mb-2 text-sm font-medium text-white">Name anda</label>
+                                                            <input type="text" id="namaAnda" className="w-full bg-yellow-300/5 focus:bg-zinc-950 border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder="Ketik disini. . ." />
+                                                            {/* <input type="text" id="error" className="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-black focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Ketik disini..." /> */}
+                                                            {/* <p className="mt-2 text-xs text-red-600 dark:text-red-500"><span className="font-medium">Nama</span> Tidak boleh kosong.</p> */}
+                                                        </div>
 
-                                            <div className='mb-6'>
-                                                <label htmlFor="kehadiran" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kehadiran</label>
-                                                <select id="kehadiran" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2">
-                                                    <option>Pilih</option>
-                                                    <option value="1">Hadir</option>
-                                                    <option value="2">Masih ragu-ragu</option>
-                                                    <option value="3">Tergantung duase</option>
-                                                    <option value="0">Tidak Hadir</option>
-                                                </select>
+                                                        <div className='mb-6'>
+                                                            <label htmlFor="kehadiran" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kehadiran</label>
+                                                            <select id="kehadiran" className="w-full bg-yellow-300/5 focus:bg-zinc-950 border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2">
+                                                                <option>Pilih</option>
+                                                                <option value="1">Hadir</option>
+                                                                <option value="2">Masih ragu-ragu</option>
+                                                                <option value="3">Tergantung duase</option>
+                                                                <option value="0">Tidak Hadir</option>
+                                                            </select>
+                                                        </div>
+                                                        <div className='mb-2'>
+                                                            <label htmlFor="ucapan" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ucapan</label>
+                                                            <textarea id="ucapan" className="w-full bg-yellow-300/5 focus:bg-zinc-950 border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder='Ketik disini. . .' rows={6}></textarea>
+                                                        </div>
+                                                        <div className='text-center'>
+                                                            <div className='inline-block relative mb-6'>
+                                                                <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
+                                                                <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
+                                                                <button type="submit" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaPaperPlane className='inline me-1 mb-0.5'/> Kirim ucapan</button>
+                                                                <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div className='mb-2'>
-                                                <label htmlFor="ucapan" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ucapan</label>
-                                                <textarea id="ucapan" className="w-full bg-black focus:bg-black border border-zinc-800 focus:ring-1 focus:ring-yellow-300 focus:outline-none focus:border-yellow-300 text-white placeholder:text-zinc-400 rounded-lg px-3 py-2" placeholder='Ketik disini. . .' rows={6}></textarea>
-                                            </div>
-                                            <div className='text-center'>
-                                                <div className='inline-block relative mb-6'>
-                                                    <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
-                                                    <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
-                                                    <button type="submit" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaPaperPlane className='inline me-1 mb-0.5'/> Kirim ucapan</button>
-                                                    <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
+                                            {/* <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 end-0 rotate-180'/>
+                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 start-0 rotate-180'/> */}
+                                        </div>
+                                    </div>
+
+                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:flex md:justify-center md:items-center px-8 md:px-0 py-8 md:border-s md:border-yellow-300/15'>
+                                        <div className='md:h-[60vh] xl:h-[80vh] overflow-y-auto'>
+                                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light'>99 Ucapan</p>
+                                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+                                                </div>
+                                                <div>
+                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaCheck className='inline me-1 mb-0.5 text-green-400'/> Hadir</span></p>
+                                                    <p className='font-light text-sm md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                {/* <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 end-0 rotate-180'/>
-                                <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-0 start-0 rotate-180'/> */}
-                            </div>
-
-                            <div className='basis-5/12 relative md:flex md:justify-center md:items-center px-8 md:px-0 py-8 md:border-s md:border-yellow-300/15'>
-                                <div className='md:h-[80vh] overflow-y-auto'>
-                                    <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
-                                    <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
-                                    <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                                    <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                                    <p className='mb-4 px-12 tracking-wide text-center font-light'>99 Ucapan</p>
-                                    <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                    <div className='flex items-start gap-4 my-4 md:ps-8'>
-                                        <div className='bg-zinc-900 rounded p-2 mt-1.5'>
-                                            <FaUser className='h-4 w-4 text-zinc-500'/>
-                                        </div>
-                                        <div>
-                                            <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
-                                            <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaCheck className='inline me-1 mb-0.5 text-green-400'/> Hadir</span></p>
-                                            <p className='font-light md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                            <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+                                                </div>
+                                                <div>
+                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaXmark className='inline me-1 mb-0.5 text-red-500'/> Tidak Hadir</span></p>
+                                                    <p className='font-light text-sm md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                                </div>
+                                            </div>
+                                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                            <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+                                                </div>
+                                                <div>
+                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
+                                                    <p className='font-light text-sm md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                                </div>
+                                            </div>
+                                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                            <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+                                                </div>
+                                                <div>
+                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
+                                                    <p className='font-light text-sm md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                                </div>
+                                            </div>
+                                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                            <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+                                                </div>
+                                                <div>
+                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
+                                                    <p className='font-light text-sm md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                                </div>
+                                            </div>
+                                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
+                                            <div className='flex items-start gap-4 my-4 md:ps-8'>
+                                                <div className='bg-zinc-900 rounded p-2 mt-1.5'>
+                                                    <FaUser className='h-4 w-4 text-zinc-500'/>
+                                                </div>
+                                                <div>
+                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
+                                                    <p className='font-light text-sm md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
+                                                </div>
+                                            </div>
+                                            <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
                                         </div>
                                     </div>
-                                    <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
-                                    <div className='flex items-start gap-4 my-4 md:ps-8'>
-                                        <div className='bg-zinc-900 rounded p-2 mt-1.5'>
-                                            <FaUser className='h-4 w-4 text-zinc-500'/>
-                                        </div>
-                                        <div>
-                                            <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
-                                            <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaXmark className='inline me-1 mb-0.5 text-red-500'/> Tidak Hadir</span></p>
-                                            <p className='font-light md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
-                                        </div>
-                                    </div>
-                                    <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
-                                    <div className='flex items-start gap-4 my-4 md:ps-8'>
-                                        <div className='bg-zinc-900 rounded p-2 mt-1.5'>
-                                            <FaUser className='h-4 w-4 text-zinc-500'/>
-                                        </div>
-                                        <div>
-                                            <h6 className='mb-1 text-white'>Kadek Lanang Lanusa Putera</h6>
-                                            <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
-                                            <p className='font-light md:me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
-                                        </div>
-                                    </div>
-                                    <div className='my-6 mx-auto w-72 border-b border-zinc-800' />
                                 </div>
                             </div>
                         </div>
 
-                        <div className='relative px-4 py-40 md:border md:border-yellow-300/15 overflow-hidden'>
-                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
-                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Matur Suksma</h2>
-                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Sampai jumpa di hari bahagia kami</p>
-                            <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                            <div className='text-center text-zinc-500'>
-                                <p>© {new Date().getFullYear()} Ashura Bali. All Rights Reserved.</p>
+                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:py-20 lg:py-32'>
+                            <div className='relative'>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
+                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
+                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
+                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
+                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
+                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
+                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
+                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
+                                </motion.div>
+                                <div className='relative px-4 py-40 bg-gradient-to-b from-transparent to-yellow-300/5 md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl'>
+                                    <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                    <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                    <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                    <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                    <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Matur Suksma</h2>
+                                    <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Sampai jumpa di hari bahagia kami</p>
+                                    <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                    <div className='text-center text-zinc-500'>
+                                        <p>© {new Date().getFullYear()} Ashura Bali. All Rights Reserved.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
