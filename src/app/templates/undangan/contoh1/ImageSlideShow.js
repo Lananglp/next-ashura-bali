@@ -26,7 +26,7 @@ function ImageSlideShow({ images }) {
                 <motion.img
                     key={index}
                     src={images[index]}
-                    className="w-screen h-screen object-cover bg-black"
+                    className="w-screen md:w-full h-screen md:h-[512px] object-cover bg-black"
                     alt={`Undangan ${index + 1}`}
                     initial={{ opacity: 0.25 }}
                     animate={{ opacity: 1 }}
