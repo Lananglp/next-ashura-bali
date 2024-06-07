@@ -70,6 +70,27 @@ function OpenWedding({images, tanggalAcara, rekening}) {
         });
     };
 
+    // disabled klik kanan dan keyboard untuk inspect
+    useEffect(() => {
+        const disabledRightClick = (e) => {
+            e.preventDefault();
+        }
+
+        const disabledKeyInspect = (event) => {
+          if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i')) {
+            event.preventDefault();
+          }
+        };
+    
+        window.addEventListener('keydown', disabledKeyInspect);
+        window.addEventListener('contextmenu', disabledRightClick);
+    
+        return () => {
+          window.removeEventListener('keydown', disabledKeyInspect);
+          window.addEventListener('contextmenu', disabledRightClick);
+        };
+    }, []);
+
     return (
         <>  
             {/* <audio ref={audioRef} src='/audio/soundWedding.mp3'/> */}
@@ -157,7 +178,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ ease: 'easeInOut', duration: 5 }}
+                        transition={{ ease: 'easeInOut', duration: 2.5 }}
                     >
                         <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
                             <div className='relative'>
@@ -188,16 +209,16 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 0, duration: 2 }} className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:md:mb-32'>
                                     <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s border-yellow-300/15'>
                                         <motion.div initial={{ opacity: 0, zIndex: '10' }} animate={{ opacity: 1, zIndex: '10' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.8, duration: 1.5 }} className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/75 from-[70%] to-[100%]'/>
-                                        <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px', rotate: '6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.6, duration: 1.5 }} className='block md:hidden absolute z-20 -top-4 -start-8'>
+                                        <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px', rotate: '6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.2, duration: 1.5 }} className='block md:hidden absolute z-20 -top-4 -start-8'>
                                             <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                         </motion.div>
-                                        <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px', rotate: '-6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '-6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.6, duration: 1.5 }} className='block md:hidden absolute z-20 -top-4 -end-8'>
+                                        <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px', rotate: '-6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '-6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.2, duration: 1.5 }} className='block md:hidden absolute z-20 -top-4 -end-8'>
                                             <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                         </motion.div>
-                                        <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px', zIndex: '20' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px', zIndex: '20' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.6, duration: 1.5 }} className='block md:hidden absolute inset-x-0 top-6'>
+                                        <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px', zIndex: '20' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px', zIndex: '20' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.2, duration: 1.5 }} className='block md:hidden absolute inset-x-0 top-6'>
                                             <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-40 h-auto opacity-75'/>
                                         </motion.div>
-                                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.7, duration: 1.5 }}>
+                                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.9, duration: 1.5 }}>
                                             <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
                                         </motion.div>
                                         <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
@@ -205,25 +226,25 @@ function OpenWedding({images, tanggalAcara, rekening}) {
 
                                     <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12'>
                                         <div>
-                                            <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px', rotate: '6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.6, duration: 1.5 }} className='hidden md:block absolute -top-4 -start-8'>
+                                            <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px', rotate: '6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.2, duration: 1.5 }} className='hidden md:block absolute -top-4 -start-8'>
                                                 <Image src='/image/flower-l-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                             </motion.div>
-                                            <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px', rotate: '6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.6, duration: 1.5 }} className='hidden md:block absolute -top-4 -end-8'>
+                                            <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px', rotate: '6deg' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px', rotate: '6deg' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.2, duration: 1.5 }} className='hidden md:block absolute -top-4 -end-8'>
                                                 <Image src='/image/flower-r-3.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                             </motion.div>
-                                            <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '30px' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.5, duration: 1.5 }} className='absolute bottom-0 start-0'>
+                                            <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '30px' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2, duration: 1.5 }} className='absolute bottom-0 start-0'>
                                                 <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                             </motion.div>
-                                            <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '30px' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.5, duration: 1.5 }} className='absolute bottom-0 end-0'>
+                                            <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '30px' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2, duration: 1.5 }} className='absolute bottom-0 end-0'>
                                                 <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
                                             </motion.div>
                                             <div className='absolute md:static inset-x-0 -top-16 text-center md:px-12'>
-                                                <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.4, duration: 1.5 }} className='mb-2 tracking-wide text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Pawiwahan</motion.p>
-                                                <motion.h1 initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.3, duration: 1.5 }} className={`${birthstone.className} mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>My Name &amp; Unkown</motion.h1>
+                                                <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.9, duration: 1.5 }} className='mb-2 tracking-wide text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Pawiwahan</motion.p>
+                                                <motion.h1 initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.8, duration: 1.5 }} className={`${birthstone.className} mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>My Name &amp; Unkown</motion.h1>
                                             </div>
-                                            <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.2, duration: 1.5 }} className='px-8 md:px-4 xl:px-12 italic tracking-wide text-yellow-100 text-center font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</motion.p>
-                                            <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2.1, duration: 1.5 }} className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                            <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2, duration: 1.5 }} className='mb-4 xl:mb-0 px-12 md:px-6 xl:px-12 tracking-wide font-light text-center text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</motion.p>
+                                            <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.7, duration: 1.5 }} className='px-8 md:px-4 xl:px-12 italic tracking-wide text-yellow-100 text-center font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</motion.p>
+                                            <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.6, duration: 1.5 }} className='my-6 mx-auto w-56 border-b border-zinc-800' />
+                                            <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.5, duration: 1.5 }} className='mb-4 xl:mb-0 px-12 md:px-6 xl:px-12 tracking-wide font-light text-center text-sm'>Wahai pasangan suami-isteri, semoga kalian tetap bersatu dan tidak pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan, tinggal di rumah yang penuh kegembiraan bersama seluruh keturunanmu.</motion.p>
                                         </div>
                                     </div>
                                 </motion.div>
