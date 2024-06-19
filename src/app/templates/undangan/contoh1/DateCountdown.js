@@ -37,9 +37,9 @@ function DateCountdown({tanggalAcara}) {
 
     return (
         <>
-            <p className='block md:hidden mx-auto w-72 text-xl font-semibold mb-4'>{formatDate(tanggalAcara)}</p>
+            <p className='block xl:hidden mx-auto w-72 text-xl font-semibold mb-4'>{formatDate(tanggalAcara)}</p>
             {isClient && timeLeft.days !== undefined ? (
-                <div className='md:hidden flex flex-grow justify-center gap-4'>
+                <div className='xl:hidden flex flex-grow justify-center gap-4'>
                     <div>
                         <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
                             <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-auto  min-w-20 absolute -start-12 -top-10' />
@@ -68,7 +68,7 @@ function DateCountdown({tanggalAcara}) {
                     </div>
                 </div>
             ) : (
-                <div className='md:hidden flex flex-grow justify-center gap-4'>
+                <div className='xl:hidden flex flex-grow justify-center gap-4'>
                     <div>
                         <div className='relative border border-yellow-300 rounded-lg bg-black/0 h-12 w-12 flex justify-center items-center'>
                             <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-auto  min-w-20 absolute -start-12 -top-10' />

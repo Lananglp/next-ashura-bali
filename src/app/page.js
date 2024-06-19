@@ -73,22 +73,24 @@ function Page() {
               <FaStar className='animate-custom-3 absolute start-0 top-0 w-4 h-4 text-pink-500' />
               <FaStar className='animate-custom-4 absolute start-6 top-12 w-3 h-3 text-pink-500' />
               <FaStar className='animate-custom-5 absolute start-12 top-4 w-2 h-2 text-pink-500' />
-              <FaStar className='animate-custom-3 absolute end-12 -bottom-12 w-4 h-4 text-pink-500' />
-              <FaStar className='animate-custom-4 absolute end-0 bottom-20 w-5 h-5 text-pink-500' />
-              <FaStar className='animate-custom-5 absolute -end-4 bottom-4 w-2 h-2 text-pink-500' />
-              <FaStar className='animate-custom-3 absolute end-1/4 top-0 w-3 h-3 text-pink-500' />
-              <h1 className='mb-8 text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Jasa Website di Bali</h1>
-              <p className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Mewujudkan Website Impian Anda dengan Berbagai Fitur dan Desain Menarik</p>
+              <FaStar className='animate-custom-4 absolute end-12 xl:-end-2 bottom-4 xl:bottom-20 w-5 h-5 text-pink-500' />
+              <FaStar className='animate-custom-5 absolute end-6 xl:-end-4 bottom-8 xl:bottom-4 w-2 h-2 text-pink-500' />
+              <FaStar className='animate-custom-3 absolute end-8 md:end-1/4 -top-8 w-3 h-3 text-pink-500' />
+              <h1 className='mb-8 text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Jasa Undangan Bali</h1>
+              {/* <p className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Mewujudkan Website Impian Anda dengan Berbagai Fitur dan Desain Menarik</p> */}
+              <p className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-3xl md:text-4xl font-medium'>Ciptakan Momen Spesial anda dengan Undangan Digital Istimewa dan Berkualitas</p>
             </div>
-            <div className='max-w-5xl'>
-              <p>Kami adalah tim berpengalaman dalam pembuatan website dengan berbagai fitur dan desain yang menarik. Kami menawarkan layanan dengan desain modern dan kualitas tinggi, tanpa mengurangi keunggulan yang kami tawarkan.</p>
+            <div className='relative max-w-5xl'>
+              <FaStar className='animate-custom-3 absolute end-24 -bottom-12 w-4 h-4 text-pink-500' />
+              {/* <p>Kami adalah tim berpengalaman dalam pembuatan website dengan berbagai fitur dan desain yang menarik. Kami menawarkan layanan dengan desain modern dan kualitas tinggi, tanpa mengurangi keunggulan yang kami tawarkan.</p> */}
+              <p className='text-justify md:text-center'>Bersama Ashura Bali anda dapat menciptakan berbagai jenis undangan digital seperti undangan pernikahan(mepandes), undangan potong gigi(metatah), undangan ulang tahun dan berbagai jenis lainnya sesuai kebutuhan anda.</p>
             </div>
           </div>
         </section>
 
         <section className='lg:bg-[url(/image/border-t-c.svg)] bg-cover bg-top lg:mt-16'>
           <div className='pt-24'>
-            <h2 className='mb-8 text-center text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Pelayanan Kami</h2>
+            <h2 className='mb-8 text-center text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Jenis Undangan</h2>
             <div className='flex flex-row flex-wrap justify-center gap-4'>
               {/* <Product
                 title="Landing Page"
@@ -115,30 +117,30 @@ function Page() {
                 contactURL={CustomWebTextForWhatsapp}
               /> */}
               <Product
-                type="Landing Page"
-                title="Website Marketing"
+                type="Undangan"
+                title="Undangan Pernikahan"
                 description="Buat kesan pertama yang tak terlupakan dengan landing page yang dirancang khusus untuk meningkatkan konversi dan menarik perhatian audiens Anda. Kami fokus pada desain yang bersih, copywriting yang persuasif, dan call-to-action yang kuat."
                 example="Landing page CV, portofolio, blog pribadi, promosi produk, profil perusahaan, brosur digital perusahaan, presentasi bisnis."
-                contactURL={landingPageTextForWhatsapp}
+                // contactURL={landingPageTextForWhatsapp}
               />
 
               <Product
-                type="Admin Dashboard"
-                title="Sistem Informasi Manajemen"
+                type="Undangan"
+                title="Undangan Potong Gigi"
                 description="Permudah pengelolaan data dan operasi bisnis Anda dengan admin dashboard yang intuitif dan lengkap. Kami merancang dashboard dengan tampilan yang user-friendly, fitur yang dapat disesuaikan, dan akses mudah ke data penting Anda."
                 example="Dashboard manajemen inventaris, dashboard laporan keuangan, dashboard analitik pengguna, dashboard pemantauan kinerja."
-                contactURL={eCommerceTextForWhatsapp}
+                // contactURL={eCommerceTextForWhatsapp}
               />
 
               <Product
-                type="Portal Akademik"
-                title="Sistem Informasi Akademik"
+                type="Undangan"
+                title="Undangan Ulang Tahun"
                 description="Tingkatkan efisiensi dan kemudahan akses informasi akademik dengan Sistem Informasi Akademik kami. Kami menyediakan solusi terintegrasi untuk pengelolaan jadwal kelas, nilai, dan kegiatan sekolah/kampus, yang memudahkan interaksi antara mahasiswa, dosen, dan staf administrasi."
                 example="Website informasi jadwal kelas, nilai, dan kegiatan sekolah/kampus."
-                contactURL={eCommerceTextForWhatsapp}
+                // contactURL={eCommerceTextForWhatsapp}
               />
 
-              <Product
+              {/* <Product
                 type="Landing Page"
                 title="Undangan Online"
                 description="Buat momen istimewa Anda lebih berkesan dengan undangan online yang elegan dan informatif. Kami merancang undangan digital yang menarik dan interaktif untuk berbagai acara, memudahkan Anda dalam berbagi undangan dan mengelola daftar tamu."
@@ -152,7 +154,7 @@ function Page() {
                 description="Dapatkan website yang sepenuhnya disesuaikan dengan kebutuhan dan visi bisnis Anda. Kami merancang dan mengembangkan website yang unik, menampilkan karakter dan nilai bisnis Anda secara menyeluruh."
                 example="Website sekolah/kampus, website perusahaan, website pribadi, website layanan profesional."
                 contactURL={CustomWebTextForWhatsapp}
-              />
+              /> */}
 
               {/* <Product
                 type="Custom"
@@ -195,7 +197,8 @@ function Page() {
             <FaStar className='animate-custom-4 absolute -end-12 bottom-20 w-3 h-3 text-pink-500' />
             <FaStar className='animate-custom-5 absolute end-12 bottom-8 w-2 h-2 text-pink-500' />
             <FaStar className='animate-custom-3 absolute end-0 top-16 w-3 h-3 text-pink-500' />
-            <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3>
+            {/* <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3> */}
+            <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Mengapa</h3>
             <p className='mb-8 italic'>&quot; Dalam dunia digital, memiliki website itu penting. Website adalah wajah bisnis online Anda yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. &quot;</p>
           </div>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 lg:mt-24'>

@@ -70,12 +70,12 @@ const images = [
   '/image/undangan/image3.jpg',
   '/image/undangan/image4.jpg',
 ];
-const tanggalAcara = new Date('2024-06-10T00:00:00');
+const tanggalAcara = new Date('2012-12-12T00:00:00');
 const rekening = '502948668385';
 
 const Page = () => {
   return (
-    <div className='container mx-auto bg-black'>
+    <div className='xl:container mx-auto bg-black'>
       {/* <div className='px-0 lg:p-32 xl:px-64 xl:py-32'> */}
       {/* <div className='mx-0 md:mx-12 lg:mx-24 xl:mx-32'> */}
         {/* <div className='md:border md:border-yellow-300/15 overflow-x-hidden'> */}
