@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { FaMapMarkerAlt } from "react-icons/fa";
 import GoogleMap from './GoogleMap';
 import { MdContentCopy } from 'react-icons/md';
+import AnimateFrames from './AnimateFrames';
 
 const birthstone = Birthstone({
     subsets: ["latin"],
@@ -94,6 +95,8 @@ function OpenWedding({images, tanggalAcara, rekening}) {
     return (
         <>  
             {/* <audio ref={audioRef} src='/audio/soundWedding.mp3'/> */}
+
+            {/* open wedding */}
             <AnimatePresence mode='wait'>
                 {!open &&
                     // <div className='fixed inset-0 overflow-x-hidden overflow-y-auto px-0 md:px-8 lg:px-32 xl:px-64 md:py-20 lg:py-32'>
@@ -124,7 +127,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                 <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-40 w-40 xl:h-56 xl:w-56' />
                             </motion.div>
                             <motion.div 
-                                className='h-screen xl:h-[512px] xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] xl:from-[0%] to-[100%] xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl'
+                                className='h-screen xl:h-[512px] xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] tofrom-[65%] md:from-[85%] xl:from-[0%] to-[100%] xl:border xl:border-yellow-300/15 xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl'
                                 initial={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ ease: 'easeInOut', delay: 1.2, duration: 0.5 }}
@@ -181,10 +184,12 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                         animate={{ opacity: 1 }}
                         transition={{ ease: 'easeInOut', duration: 2.5 }}
                     >
-                        {/* <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'> */}
+                        {/* <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'> */}
+                        {/* intro wedding */}
                         <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} animate={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} exit={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden xl:block absolute z-0 -start-12 -top-12 xl:-start-16 xl:-top-16'>
+                                <AnimateFrames animate/>
+                                {/* <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} animate={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} exit={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden xl:block absolute z-0 -start-12 -top-12 xl:-start-16 xl:-top-16'>
                                     <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-28 w-28 xl:h-44 xl:w-44'/>
                                 </motion.div>
                                 <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} animate={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} exit={{ opacity: 0, translateX: '30px', translateY: '-30px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden xl:block absolute z-0 -end-12 -top-12 xl:-end-16 xl:-top-16'>
@@ -207,7 +212,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                 </motion.div>
                                 <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} animate={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} exit={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden xl:block opacity-50 absolute z-0 -top-28 xl:-top-40 start-1/2'>
                                     <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-40 w-40 xl:h-56 xl:w-56' />
-                                </motion.div>
+                                </motion.div> */}
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 0, duration: 2 }} className='min-h-screen xl:min-h-0 xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[85%] xl:from-[0%] to-[100%] xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
                                     <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '30px' }} animate={{ opacity: 0.75, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 2, duration: 1.5 }} className='block xl:hidden absolute bottom-0 start-0'>
                                         <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36'/>
@@ -258,34 +263,12 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                 </motion.div>
                             </div>
                         </div>
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* om swatyastu section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className='md:flex md:flex-row bg-gradient-to-b from-transparent to-yellow-300/5 md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
-                                    <div className='min-h-screen xl:min-h-0 md:basis-6/12 xl:basis-7/12 relative flex justify-center items-center px-4 py-24'>
+                                <AnimateFrames animate/>
+                                <div className='xl:flex xl:flex-row bg-gradient-to-b from-transparent to-yellow-300/5 xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
+                                    <div className='min-h-screen xl:min-h-0 xl:basis-7/12 relative flex justify-center items-center px-4 py-24'>
                                         <div>
                                             <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
                                             <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
@@ -294,60 +277,38 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                             <h2 className={`${birthstone.className} text-center mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Om Swastyastu</h2>
                                             {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
                                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada Upacara Manusa Yadnya Pawiwahan putra dan putri kami.</p>
+                                            <p className='max-w-lg mb-4 px-12 tracking-wide text-center font-light text-sm'>Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/ Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ i pada Upacara Manusa Yadnya Pawiwahan putra dan putri kami.</p>
                                         </div>
                                     </div>
-                                    <div className='md:basis-6/12 xl:basis-5/12 hidden md:block md:border-s border-yellow-300/15'>
+                                    <div className='xl:basis-5/12 hidden xl:block xl:border-s border-yellow-300/15'>
                                         <Image priority src={images[2]} alt='Image1' width={354} height={512} className='w-full max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* mempelai pria section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className='min-h-screen xl:min-h-0 md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                <AnimateFrames animate/>
+                                <div className='min-h-screen xl:min-h-0 xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[85%] xl:from-[0%] to-[100%] xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
                                     <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
                                     <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s border-yellow-300/15'>
-                                        <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
-                                        <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
-                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
-                                        <Image src='/image/undangan/man.jpeg' alt='Image1' width={354} height={512} className='w-full max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
-                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                    <div className='xl:basis-5/12 relative xl:border-s border-yellow-300/15'>
+                                        <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                        <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                        <div className='block xl:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                                        <Image src='/image/undangan/man.jpeg' alt='Image1' width={354} height={512} className='w-full max-h-[512px] md:max-h-[1024px] xl:max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
+                                        <div className='block xl:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                                     </div>
 
-                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12'>
+                                    <div className='xl:basis-7/12 relative xl:flex xl:justify-center xl:items-center px-4 py-12 md:py-24 xl:py-12'>
                                         <div>
-                                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='hidden md:block w-36 h-36 opacity-75 absolute top-2 end-2 rotate-180'/>
-                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='hidden md:block w-36 h-36 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute top-2 start-2 rotate-180'/>
                                             <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
                                             <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                                            <div className='absolute md:static inset-x-0 -top-16'>
+                                            <div className='absolute xl:static inset-x-0 -top-16'>
                                                 <h2 className={`${birthstone.className} text-center mb-2 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Sing</h2>
                                                 <p className='mb-4 tracking-wide text-center text-yellow-100 font-light'>I Gede Sing Tawang</p>
                                             </div>
@@ -362,32 +323,45 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                             </div>
                         </div>
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* mempelai wanita section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
+                                <AnimateFrames animate/>
+                                <div className='min-h-screen xl:min-h-0 xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[85%] xl:from-[0%] to-[100%] xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
+                                    <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                    <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                    <div className='xl:basis-5/12 relative xl:border-s border-yellow-300/15'>
+                                        <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                        <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='block xl:hidden w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                        <div className='block xl:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                                        <Image src='/image/undangan/woman.jpeg' alt='Image1' width={354} height={512} className='w-full max-h-[512px] md:max-h-[1024px] xl:max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
+                                        <div className='block xl:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                    </div>
+
+                                    <div className='xl:basis-7/12 relative xl:flex xl:justify-center xl:items-center px-4 py-12 md:py-24 xl:py-12'>
+                                        <div>
+                                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute top-2 start-2 rotate-180'/>
+                                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
+                                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='hidden xl:block w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
+                                            <div className='absolute xl:static inset-x-0 -top-16'>
+                                                <h2 className={`${birthstone.className} text-center mb-2 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Sing</h2>
+                                                <p className='mb-4 tracking-wide text-center text-yellow-100 font-light'>I Gede Sing Tawang</p>
+                                            </div>
+                                            <p className='mb-2 tracking-wide text-center font-light text-sm'>Putra pertama dari pasangan:</p>
+                                            <p className='tracking-wide text-center text-yellow-100 font-light'>I Gede React Next Js</p>
+                                            <p className='my-4 tracking-wide text-center font-light text-4xl'>&amp;</p>
+                                            <p className='mb-2 tracking-wide text-center text-yellow-100 font-light'>Ni Putu Laravel artisan</p>
+                                            <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>Br.Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
+                            <div className='relative'>
+                                <AnimateFrames animate/>
                                 <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
                                     <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s md:border-yellow-300/15'>
                                         <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='block md:hidden w-20 h-20 opacity-100 absolute top-2 end-2 rotate-180'/>
@@ -416,71 +390,45 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* lokasi dan waktu section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
-                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:border-s md:border-yellow-300/15'>
+                                <AnimateFrames animate/>
+                                <div className='xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[85%] xl:from-[0%] to-[100%] xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
+                                    <div className='xl:basis-5/12 relative xl:border-s xl:border-yellow-300/15'>
                                         <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 end-2 rotate-180'/>
                                         <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-100 absolute top-2 start-2 rotate-180'/>
-                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
-                                        <Image src={images[2]} alt='Image1' width={354} height={512} className='w-full h-[512px] object-cover'/>
-                                        <div className='block md:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
+                                        <div className='block xl:hidden absolute inset-0 bg-gradient-to-t from-transparent to-black/50 from-[95%] to-[100%]'/>
+                                        <Image src={images[2]} alt='Image1' width={354} height={512} className='w-full max-h-[512px] md:max-h-[1024px] xl:max-h-[512px] object-cover'/>
+                                        <div className='block xl:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                                     </div>
 
-                                    <div className='md:basis-6/12 xl:basis-7/12 relative md:flex md:justify-center md:items-center px-4 py-12 md:py-0'>
-                                        <div>
-                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='hidden md:block h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
-                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='hidden md:block h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                    <div className='xl:basis-7/12 relative xl:flex xl:justify-center xl:items-center px-4 py-12 xl:py-0'>
+                                        <div className='mx-auto max-w-xl'>
+                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='hidden xl:block h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='hidden xl:block h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
                                             <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
                                             <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                                            <div className='absolute md:static inset-x-0 -top-16'>
-                                                <p className='mb-2 tracking-wide text-center text-yellow-100 font-light text-base md:text-sm xl:text-xl'>Waktu dan Lokasi</p>
-                                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl md:text-3xl xl:text-5xl text-yellow-200`}>Acara Kami</h2>
+                                            <div className='absolute xl:static inset-x-0 -top-16'>
+                                                <p className='mb-2 tracking-wide text-center text-yellow-100 font-light text-base xl:text-xl'>Waktu dan Lokasi</p>
+                                                <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Acara Kami</h2>
                                             </div>
-                                            <p className='inline-block md:hidden mb-6 tracking-wide text-center font-light md:text-sm'>Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara kami :</p>
-                                            <p className='hidden md:inline-block md:px-12 mb-6 tracking-wide text-center font-light md:text-sm'>Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara kami :</p>
-                                            <p className='text-yellow-200 tracking-wide text-center font-medium text-2xl md:text-xl'>{formatDate(tanggalAcara)}</p>
-                                            <p className='mb-6 tracking-wide text-center font-light text-lg md:text-base'>17:00 s/d Selesai</p>
+                                            <p className='inline-block xl:hidden mb-6 tracking-wide text-center font-light xl:text-sm'>Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara kami :</p>
+                                            <p className='hidden xl:inline-block xl:px-12 mb-6 tracking-wide text-center font-light xl:text-sm'>Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara kami :</p>
+                                            <p className='text-yellow-200 tracking-wide text-center font-medium text-2xl xl:text-xl'>{formatDate(tanggalAcara)}</p>
+                                            <p className='mb-6 tracking-wide text-center font-light text-lg xl:text-base'>17:00 s/d Selesai</p>
                                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                            <p className='mb-6 md:mb-0 px-8 tracking-wide text-center font-light md:text-sm'>Br. Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
-                                            {/* <div className='mb-6 text-center'>
-                                                <Link href='/' className='inline-block px-4 py-2 border border-yellow-200 text-yellow-200 text-center'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</Link>
-                                            </div> */}
+                                            <p className='mb-6 xl:mb-0 px-8 tracking-wide text-center font-light xl:text-sm'>Br. Gulingan, Antosari, Selemadeg Barat, Tabanan, Bali</p>
                                             <div className='text-center'>
-                                                <div className='inline-block relative mb-6 md:mb-0'>
+                                                <div className='inline-block relative mb-6 xl:mb-0'>
                                                     <Image priority src='/image/leaf-l.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -start-11 top-3 rotate-12' />
                                                     <Image priority src='/image/leaf-r.svg' alt='flower.svg' width={0} height={0} className='h-16 w-16 absolute z-0 -end-11 top-3 -rotate-12' />
                                                     <button onClick={handleOpen} type="button" className='mt-8 border border-yellow-300 rounded-lg bg-black/50 hover:bg-black/50 focus:ring-1 ring-yellow-300 transition duration-500 shadow-xl shadow-yellow-300/15 px-8 py-4'><FaMapMarkerAlt className='inline me-1 mb-0.5'/> Buka Google Map</button>
                                                     <Image priority src='/image/decoration-3.svg' alt='flower.svg' width={0} height={0} className='h-auto w-36 mx-auto mt-1' />
                                                 </div>
                                             </div>
-                                            {/* <p className='px-8 italic tracking-wide text-center text-yellow-100 font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</p> */}
                                         </div>
                                     </div>
                                 </div>
@@ -502,33 +450,11 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                             })}
                         </div> */}
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* galery section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-2 md:mb-32">
+                                <AnimateFrames animate/>
+                                <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 p-2 xl:mb-32">
                                     <div className="grid gap-2">
                                         <div>
                                             <Image src={images[0]} alt='Image1' width={200} height={300} className='w-full h-full object-cover rounded-xl'/>
@@ -577,37 +503,15 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                             </div>
                         </div>
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* kado digital section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className='md:flex md:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 from-[65%] md:from-[0%] to-[100%] md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
-                                    <div className='md:basis-6/12 xl:basis-5/12 hidden md:block'>
+                                <AnimateFrames animate/>
+                                <div className='xl:flex xl:flex-row-reverse bg-gradient-to-b from-transparent to-yellow-300/5 xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
+                                    <div className='xl:basis-5/12 hidden xl:block'>
                                         <Image priority src={images[2]} alt='Image1' width={354} height={512} className='w-full max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
                                     </div>
-                                    <div className='min-h-screen xl:min-h-0 md:basis-6/12 xl:basis-7/12 relative flex justify-center items-center px-4 pt-24 md:pt-8 pb-12 md:pb-0'>
+                                    <div className='min-h-screen xl:min-h-0 xl:basis-7/12 relative flex justify-center items-center px-4 pt-24 xl:pt-8 pb-12 xl:pb-0'>
                                         <div>
                                             <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
                                             <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
@@ -616,8 +520,8 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                             <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-2/3 h-auto opacity-75'/>
                                             <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Kado Digital</h2>
                                             <div className='my-6 mx-auto w-56 border-b border-zinc-800' />
-                                            <p className='inline-block md:hidden mb-12 md:mb-2 px-12 tracking-wide text-center font-light text-sm'>Doa restu Anda adalah anugerah terindah bagi kami. Namun, jika Anda ingin memberikan ungkapan tanda kasih melalui kado, Anda dapat melakukannya secara digital.</p>
-                                            <p className='hidden md:inline-block mb-12 md:mb-2 px-12 tracking-wide text-center font-light text-sm'>Doa restu Anda adalah anugerah terindah. Untuk tanda kasih, kado dapat diberikan secara digital.</p>
+                                            <p className='mx-auto max-w-xl inline-block xl:hidden mb-12 xl:mb-2 px-12 tracking-wide text-center font-light text-sm'>Doa restu Anda adalah anugerah terindah bagi kami. Namun, jika Anda ingin memberikan ungkapan tanda kasih melalui kado, Anda dapat melakukannya secara digital.</p>
+                                            <p className='hidden xl:inline-block mb-12 xl:mb-2 px-12 tracking-wide text-center font-light text-sm'>Doa restu Anda adalah anugerah terindah. Untuk tanda kasih, kado dapat diberikan secara digital.</p>
                                             <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>No rekening:</p>
                                             <p className='text-center tracking-widest text-lg text-yellow-200'>{rekening ? rekening : '-'}</p>
                                             <p className='mb-4 px-12 tracking-wide text-center font-light text-sm'>BANK BRI</p>
@@ -639,37 +543,17 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                         </div>
 
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:pt-20 lg:pt-32'>
+                        {/* ucapan & komentar section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className='md:flex md:flex-row bg-gradient-to-b from-transparent to-yellow-300/5 md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl md:mb-32'>
+                                <AnimateFrames animate/>
+                                <div className='md:flex md:flex-row bg-gradient-to-b from-transparent to-yellow-300/5 xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl xl:mb-32'>
                                     <div className='min-h-screen xl:min-h-0 md:basis-6/12 xl:basis-7/12 relative flex justify-center items-center px-4 pt-24 md:pt-12 pb-12'>
                                         <div className='w-full'>
-                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
-                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='block md:hidden xl:block h-32 w-32 absolute z-0 start-2 top-4 rotate-[3deg]' />
+                                            <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='block md:hidden xl:block h-32 w-32 absolute z-0 end-2 top-4 -rotate-[3deg]' />
+                                            <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='hidden md:block xl:hidden w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
+                                            <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='hidden md:block xl:hidden w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
                                             <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
                                             <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
                                             <h2 className={`${birthstone.className} text-center mb-4 text-5xl text-yellow-200`}>Buku Tamu</h2>
@@ -721,8 +605,8 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                         </div>
                                     </div>
 
-                                    <div className='h md:basis-6/12 xl:basis-5/12 relative md:flex md:justify-center md:items-center px-0 py-8 md:border-s md:border-yellow-300/15'>
-                                        <div className='h-screen md:h-[60vh] xl:h-[80vh] overflow-y-auto'>
+                                    <div className='md:basis-6/12 xl:basis-5/12 relative md:flex md:justify-center md:items-center px-0 py-8 md:border-s md:border-yellow-300/15'>
+                                        <div className='h-screen overflow-y-auto'>
                                             <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
                                             <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
                                             <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
@@ -801,33 +685,11 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                             </div>
                         </div>
 
-                        <div className='overflow-hidden px-0 md:px-8 lg:px-32 xl:px-64 md:py-20 lg:py-32'>
+                        {/* outro section */}
+                        <div className='overflow-hidden px-0 xl:px-64 pt-0 xl:pt-32'>
                             <div className='relative'>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -start-16 -top-16'>
-                                    <Image priority src='/image/border-t-l.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44'/>
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.6, duration: 1.5 }} className='hidden md:block absolute z-0 -end-16 -top-16'>
-                                    <Image priority src='/image/border-t-r.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block absolute z-0 -start-32 bottom-32'>
-                                    <Image priority src='/image/flower-r.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 0.8, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -end-32 bottom-32'>
-                                    <Image priority src='/image/flower-l.svg' alt='flower.svg' width={0} height={0} className='h-32 w-32' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -end-32 rotate-45'>
-                                    <Image priority src='/image/flower-r-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.75, translateX: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1, duration: 1.5 }} className='hidden md:block absolute z-10 -bottom-4 -start-32 -rotate-45'>
-                                    <Image priority src='/image/flower-l-3.svg' alt='flower.svg' width={0} height={0} className='h-44 w-44' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '-30px' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -bottom-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <motion.div initial={{ opacity: 0, translateX: '-50%', translateY: '30px', rotate: '180deg' }} viewport={{ once: true }} whileInView={{ opacity: 0.5, translateX: '-50%', translateY: '0px', rotate: '180deg' }} transition={{ type: 'spring', bounce: 0.5, ease: 'easeInOut', delay: 1.2, duration: 1.5 }} className='hidden md:block opacity-50 absolute z-0 -top-40 start-1/2'>
-                                    <Image priority src='/image/decoration-2.svg' alt='flower.svg' width={0} height={0} className='h-56 w-56' />
-                                </motion.div>
-                                <div className='min-h-screen xl:min-h-0 flex justify-center items-center relative px-4 py-40 bg-gradient-to-b from-transparent to-yellow-300/5 md:border md:border-yellow-300/15 overflow-hidden md:shadow-xl md:shadow-yellow-300/5 rounded-xl'>
+                                <AnimateFrames animate/>
+                                <div className='min-h-screen xl:min-h-0 flex justify-center items-center relative px-4 py-40 bg-gradient-to-b from-transparent to-yellow-300/5 xl:border xl:border-yellow-300/15 overflow-hidden xl:shadow-xl xl:shadow-yellow-300/5 rounded-xl'>
                                     <Image src='/image/border-b-l-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 end-2 rotate-180'/>
                                     <Image src='/image/border-b-r-2.svg' alt='Image1' width={0} height={0} className='w-20 h-20 opacity-75 absolute top-2 start-2 rotate-180'/>
                                     <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
@@ -843,14 +705,6 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                 </div>
                             </div>
                         </div>
-
-                        {/* <div className='relative p-3'>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute top-0 end-0 rotate-180'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute top-0 start-0 rotate-180'/>
-                            <Image src='/image/flower-l-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 start-0'/>
-                            <Image src='/image/flower-r-2.svg' alt='Image1' width={0} height={0} className='w-36 h-36 opacity-75 absolute bottom-0 end-0'/>
-                            <GoogleMap/>
-                        </div> */}
 
                         <motion.button 
                             onClick={toggleMusic}
