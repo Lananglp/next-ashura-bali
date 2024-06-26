@@ -12,14 +12,14 @@ function ButtonWhatsapp() {
     useEffect(() => {
         setTimeout(() => {
             setShow(true);
-            notificationSound();
+            // notificationSound();
         }, 5000);
     }, []);
 
-    const notificationSound = () => {
-        const audio = new Audio('/audio/notification.mp3');
-        audio.play();
-    }
+    // const notificationSound = () => {
+    //     const audio = new Audio('/audio/notification.mp3');
+    //     audio.play();
+    // }
 
   return (
     <AnimatePresence>
