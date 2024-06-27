@@ -186,7 +186,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                             <Image src='/image/decoration-1.svg' alt='Image1' width={0} height={0} className='mx-auto w-40 h-auto opacity-75'/>
                                         </motion.div>
                                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.9, duration: 1.5 }}>
-                                            <Image priority src={images[0]} alt='Image1' width={354} height={512} className='w-full max-h-[512px] md:max-h-[1024px] xl:max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
+                                            <Image priority src={images[2]} alt='Image1' width={354} height={512} className='w-full max-h-[512px] md:max-h-[1024px] xl:max-h-[512px] object-cover' style={{objectPosition: '0% 0%'}}/>
                                         </motion.div>
                                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.5, duration: 1.5 }} className='block xl:hidden absolute inset-0 bg-gradient-to-b from-transparent to-black from-[50%] to-[100%]'/>
                                     </div>
@@ -207,7 +207,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                             </motion.div>
                                             <div className='absolute xl:static inset-x-0 -top-16 text-center xl:px-12'>
                                                 <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.9, duration: 1.5 }} className='mb-2 tracking-wide text-yellow-100 font-light text-base xl:text-xl'>Pawiwahan</motion.p>
-                                                <motion.h1 initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.8, duration: 1.5 }} className={`${birthstone.className} mb-4 text-5xl text-yellow-200`}>My Name &amp; Unkown 888</motion.h1>
+                                                <motion.h1 initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.8, duration: 1.5 }} className={`${birthstone.className} mb-4 text-5xl text-yellow-200`}>You &amp; Me</motion.h1>
                                             </div>
                                             <motion.p initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.7, duration: 1.5 }} className='px-8 md:px-40 xl:px-12 italic tracking-wide text-yellow-100 text-center font-light text-sm'>&quot; Ihaiva stam mā vi yaustam, Visvām āyur vyasnutam. Krindantau putrair naptrbhih, Modamānau sve grhe. &quot;</motion.p>
                                             <motion.div initial={{ opacity: 0, translateX: '0px', translateY: '-30px' }} animate={{ opacity: 1, translateX: '0px', translateY: '0px' }} transition={{ type: 'spring', bounce: 0, ease: 'easeInOut', delay: 1.6, duration: 1.5 }} className='my-6 mx-auto w-56 border-b border-zinc-800' />
@@ -523,7 +523,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                     <FaUser className='h-4 w-4 text-zinc-500'/>
                                                 </div>
                                                 <div>
-                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <h6 className='mb-1 pe-4 text-white'>Unknown Person</h6>
                                                     <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaCheck className='inline me-1 mb-0.5 text-green-400'/> Hadir</span></p>
                                                     <p className='font-light text-sm me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>
@@ -534,7 +534,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                     <FaUser className='h-4 w-4 text-zinc-500'/>
                                                 </div>
                                                 <div>
-                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <h6 className='mb-1 pe-4 text-white'>Unknown Person</h6>
                                                     <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaXmark className='inline me-1 mb-0.5 text-red-500'/> Tidak Hadir</span></p>
                                                     <p className='font-light text-sm me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>
@@ -545,7 +545,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                     <FaUser className='h-4 w-4 text-zinc-500'/>
                                                 </div>
                                                 <div>
-                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <h6 className='mb-1 pe-4 text-white'>Unknown Person</h6>
                                                     <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
                                                     <p className='font-light text-sm me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>
@@ -556,7 +556,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                     <FaUser className='h-4 w-4 text-zinc-500'/>
                                                 </div>
                                                 <div>
-                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <h6 className='mb-1 pe-4 text-white'>Unknown Person</h6>
                                                     <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
                                                     <p className='font-light text-sm me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>
@@ -567,7 +567,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                     <FaUser className='h-4 w-4 text-zinc-500'/>
                                                 </div>
                                                 <div>
-                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <h6 className='mb-1 pe-4 text-white'>Unknown Person</h6>
                                                     <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
                                                     <p className='font-light text-sm me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>
@@ -578,7 +578,7 @@ function OpenWedding({images, tanggalAcara, rekening}) {
                                                     <FaUser className='h-4 w-4 text-zinc-500'/>
                                                 </div>
                                                 <div>
-                                                    <h6 className='mb-1 pe-4 text-white'>Kadek Lanang Lanusa Putera</h6>
+                                                    <h6 className='mb-1 pe-4 text-white'>Unknown Person</h6>
                                                     <p className='mb-4 text-sm'>2 Mei 2027 <span className='ms-2 bg-zinc-900 rounded px-2 py-0.5'><FaTriangleExclamation className='inline me-1 mb-0.5 text-yellow-500'/> Ragu-ragu</span></p>
                                                     <p className='font-light text-sm me-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consectetur similique facere quod delectus eos error adipisci debitis commodi dolores a rerum, ad, magni quis?</p>
                                                 </div>

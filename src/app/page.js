@@ -14,18 +14,19 @@ import ButtonWhatsapp from '@/components/ButtonWhatsapp';
 
 const Product = ({type, title, description, example, contactURL }) => {
   return (
-    <div className='basis-full sm:basis-6/12 md:basis-5/12 xl:basis-3/12 group/pelayanan relative grid grid-cols-1 border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
-      <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-gradient-to-r from-purple-700 to-pink-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
+    <div className='basis-full sm:basis-6/12 md:basis-5/12 xl:basis-3/12 group/pelayanan relative grid grid-cols-1 border border-yellow-400 dark:border-yellow-200/50 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-yellow-200 dark:to-yellow-300/15 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
+      <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-black rounded-lg text-black font-medium text-sm shadow-lg shadow-black/15'>
+        <div className='absolute inset-0 -z-10 bg-gradient-to-r from-yellow-200 to-yellow-400/50 rounded-lg'/>
         {type}
       </div>
       <div className='overflow-hidden relative grid grid-cols-1 content-between px-6 pb-6 pt-8'>
         <div>
-          <h6 className='mb-2 text-pink-400 font-semibold'>{title}</h6>
+          <h6 className='mb-2 text-yellow-200 font-semibold'>{title}</h6>
           <p className='mb-2 text-sm'>{description}</p>
         </div>
         {example &&
           <div>
-            <span className='text-pink-500 text-sm font-medium'>Contoh :</span>
+            <span className='text-primary text-sm font-medium'>Contoh :</span>
             <p className='text-sm'>{example}</p>
           </div>
         }
@@ -34,9 +35,9 @@ const Product = ({type, title, description, example, contactURL }) => {
             <p className='text-center'><FaWhatsapp className='inline h-3.5 w-3.5 me-1 mb-0.5' />Hubungi Sekarang</p>
           </Link>
         }
-        <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
-        <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
-        <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+        <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-primary' />
+        <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-primary' />
+        <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-primary' />
       </div>
     </div>
   )
@@ -65,31 +66,37 @@ function Page() {
       <Navbar refs={refs}/>
 
       <Container overflow="hidden">
-        <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover lg:mt-12">
-          <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/25 from-[0%] to-transparent to-[70%] absolute start-32 top-64 w-96 h-96' />
-          <div className='bg-gradient-radial from-pink-300/30 dark:from-pink-900/25 from-[0%] to-transparent to-[70%] absolute end-48 top-0 w-96 h-96' />
+        {/* <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover lg:mt-12"> */}
+        <section className="relative lg:mt-12">
+          <Image src='/image/flower-l-3.svg' alt='decoration-1.svg' width={224} height={0} className='absolute start-0 top-0'/>
+          <Image src='/image/flower-r-3.svg' alt='decoration-1.svg' width={224} height={0} className='absolute end-0 top-0'/>
+          <div className='bg-gradient-radial from-yellow-300/30 dark:from-yellow-300/10 from-[0%] to-transparent to-[70%] absolute start-32 top-64 w-96 h-96' />
+          <div className='bg-gradient-radial from-yellow-300/30 dark:from-yellow-300/10 from-[0%] to-transparent to-[70%] absolute end-48 top-0 w-96 h-96' />
           <div className="flex flex-col justify-center items-center text-center pt-24">
             <div className='relative max-w-4xl'>
-              <FaStar className='animate-custom-3 absolute start-0 top-0 w-4 h-4 text-pink-500' />
-              <FaStar className='animate-custom-4 absolute start-6 top-12 w-3 h-3 text-pink-500' />
-              <FaStar className='animate-custom-5 absolute start-12 top-4 w-2 h-2 text-pink-500' />
-              <FaStar className='animate-custom-4 absolute end-12 xl:-end-2 bottom-4 xl:bottom-20 w-5 h-5 text-pink-500' />
-              <FaStar className='animate-custom-5 absolute end-6 xl:-end-4 bottom-8 xl:bottom-4 w-2 h-2 text-pink-500' />
-              <FaStar className='animate-custom-3 absolute end-8 md:end-1/4 -top-8 w-3 h-3 text-pink-500' />
+              <FaStar className='animate-custom-3 absolute start-0 top-0 w-4 h-4 text-primary' />
+              <FaStar className='animate-custom-4 absolute start-6 top-12 w-3 h-3 text-primary' />
+              <FaStar className='animate-custom-5 absolute start-12 top-4 w-2 h-2 text-primary' />
+              <FaStar className='animate-custom-4 absolute end-12 xl:-end-2 bottom-4 xl:bottom-20 w-5 h-5 text-primary' />
+              <FaStar className='animate-custom-5 absolute end-6 xl:-end-4 bottom-8 xl:bottom-4 w-2 h-2 text-primary' />
+              <FaStar className='animate-custom-3 absolute end-8 md:end-1/4 -top-8 w-3 h-3 text-primary' />
               <h1 className='mb-8 text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Jasa Undangan Bali</h1>
               {/* <p className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-4xl font-medium'>Mewujudkan Website Impian Anda dengan Berbagai Fitur dan Desain Menarik</p> */}
-              <p className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-3xl md:text-4xl font-medium'>Ciptakan Momen Spesial anda dengan Undangan Digital Istimewa dan Berkualitas</p>
+              <p className='mb-8 text-zinc-700 dark:text-white leading-tight text-3xl md:text-4xl font-medium'>Ciptakan Momen Spesial anda dengan Undangan Digital Istimewa dan Berkualitas</p>
             </div>
             <div className='relative max-w-5xl'>
-              <FaStar className='animate-custom-3 absolute end-24 -bottom-12 w-4 h-4 text-pink-500' />
+              <FaStar className='animate-custom-3 absolute end-24 -bottom-12 w-4 h-4 text-primary' />
               {/* <p>Kami adalah tim berpengalaman dalam pembuatan website dengan berbagai fitur dan desain yang menarik. Kami menawarkan layanan dengan desain modern dan kualitas tinggi, tanpa mengurangi keunggulan yang kami tawarkan.</p> */}
-              <p className='text-justify md:text-center'>Bersama Ashura Bali anda dapat menciptakan berbagai jenis undangan digital seperti undangan pernikahan(mepandes), undangan potong gigi(metatah), undangan ulang tahun dan berbagai jenis lainnya sesuai kebutuhan anda.</p>
+              <p className='text-justify md:text-center'>Bersama Ashura Bali anda dapat menciptakan berbagai jenis undangan digital seperti undangan pernikahan(pawiwahan), undangan potong gigi(metatah), undangan ulang tahun dan berbagai jenis lainnya sesuai kebutuhan anda.</p>
             </div>
           </div>
         </section>
 
-        <section className='lg:bg-[url(/image/border-t-c.svg)] bg-cover bg-top lg:mt-16'>
-          <div className='pt-24'>
+        {/* <section className='lg:bg-[url(/image/border-t-c.svg)] bg-cover bg-top lg:mt-16'> */}
+        <section className='lg:mt-16'>
+          <Image src='/image/decoration-1.svg' alt='decoration-1.svg' width={312} height={0} className='mx-auto'/>
+          {/* <div className='pt-24'> */}
+          <div className='pt-4'>
             <h2 className='mb-8 text-center text-lg text-primary font-medium'><GoTag className='inline me-1 mb-0.5' /> Jenis Undangan</h2>
             <div className='flex flex-row flex-wrap justify-center gap-4'>
               {/* <Product
@@ -171,12 +178,12 @@ function Page() {
                     <p className='mb-2 text-sm'>Segera hadir! Aplikasi mobile responsif untuk Android, iOS, dan platform hybrid. Dengan desain antarmuka pengguna yang menawan dan fitur-fitur canggih, kami akan memperkuat kehadiran digital bisnis Anda. Tunggu kabar selanjutnya!</p>
                   </div>
                   <div>
-                    <span className='text-pink-500 text-sm font-medium'>Contoh :</span>
+                    <span className='text-primary text-sm font-medium'>Contoh :</span>
                     <p className='text-sm'>Aplikasi Android, iOS, dan platform hybrid</p>
                   </div>
-                  <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
-                  <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
-                  <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+                  <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-primary' />
+                  <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-primary' />
+                  <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-primary' />
                 </div>
                 <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-purple-700 rounded-lg text-white font-medium text-sm shadow-lg shadow-black/15'>
                   Segera Hadir
@@ -187,21 +194,58 @@ function Page() {
         </section>
 
         <section className="relative flex flex-col justify-center items-center text-center mt-12">
-          <Image src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-1 absolute start-0 lg:start-24 top-0 opacity-50 lg:opacity-100' />
-          <Image src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-2 absolute end-0 lg:end-24 top-64 lg:top-40 opacity-50 lg:opacity-100' />
-          <div className='relative max-w-xl mt-20'>
-            <FaStar className='animate-custom-3 absolute -start-6 top-0 w-5 h-5 text-pink-500' />
-            <FaStar className='animate-custom-4 absolute start-3 top-12 w-4 h-4 text-pink-500' />
-            <FaStar className='animate-custom-5 absolute -start-3 top-20 w-3 h-3 text-pink-500' />
-            <FaStar className='animate-custom-3 absolute end-0 bottom-4 w-4 h-4 text-pink-500' />
-            <FaStar className='animate-custom-4 absolute -end-12 bottom-20 w-3 h-3 text-pink-500' />
-            <FaStar className='animate-custom-5 absolute end-12 bottom-8 w-2 h-2 text-pink-500' />
-            <FaStar className='animate-custom-3 absolute end-0 top-16 w-3 h-3 text-pink-500' />
-            {/* <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3> */}
-            <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Mengapa</h3>
-            <p className='mb-8 italic'>&quot; Dalam dunia digital, memiliki website itu penting. Website adalah wajah bisnis online Anda yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. &quot;</p>
+          
+
+
+          <div className='mt-0'>
+            <div className='md:flex md:flex-row items-center'>
+              <div className='basis-7/12 py-52'>
+                <div className='relative py-32'>
+                  <Image src='/image/undangan/mobile-2-undangan.png' alt='dekstop-undangan.png' width={200} height={120} className='absolute start-[40%] bottom-0 backdrop-shadow-custom'/>
+                  <Image src='/image/undangan/mobile-1-undangan.png' alt='dekstop-undangan.png' width={200} height={120} className='absolute start-[14%] -bottom-[32%]'/>
+                  <Image src='/image/undangan/mobile-3-undangan.png' alt='dekstop-undangan.png' width={200} height={120} className='absolute end-[10%] -bottom-[64%]'/>
+                </div>
+              </div>
+              <div className='basis-5/12 text-start pe-32'>
+                <h3 className='mb-4 text-4xl font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+                <p className='text-lg leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo eum porro facilis sit. Ea commodi inventore fugiat labore error. Ipsam recusandae magnam quos eos excepturi autem optio ea ab.</p>
+              </div>
+            </div>
+
+            <div className='md:flex md:flex-row-reverse items-center'>
+              <div className='basis-7/12 pb-28'>
+                <div className='relative flex justify-end pt-12 pb-32'>
+                  <Image src='/image/undangan/dekstop-undangan.png' alt='dekstop-undangan.png' width={700} height={400} className='backdrop-shadow-custom'/>
+                  <Image src='/image/undangan/tablet-undangan.png' alt='dekstop-undangan.png' width={300} height={200} className='absolute start-[10%] top-[30%]'/>
+                </div>
+              </div>
+              <div className='basis-5/12 text-end ps-32'>
+                <h3 className='mb-4 text-4xl font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+                <p className='text-lg leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo eum porro facilis sit. Ea commodi inventore fugiat labore error. Ipsam recusandae magnam quos eos excepturi autem optio ea ab.</p>
+              </div>
+            </div>
           </div>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 lg:mt-24'>
+
+          <div className='relative w-full py-12'>
+            <Image src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-1 absolute start-0 lg:start-24 top-0 opacity-50 lg:opacity-100' />
+            <Image src="/image/flower.svg" alt="flower.svg" width={192} height={192} className='animate-custom-2 absolute end-0 lg:end-24 bottom-0 opacity-50 lg:opacity-100' />
+            <div className='relative mx-auto max-w-xl mt-20'>
+              <FaStar className='animate-custom-3 absolute -start-6 top-0 w-5 h-5 text-primary' />
+              <FaStar className='animate-custom-4 absolute start-3 top-12 w-4 h-4 text-primary' />
+              <FaStar className='animate-custom-5 absolute -start-3 top-20 w-3 h-3 text-primary' />
+              <FaStar className='animate-custom-3 absolute end-0 bottom-4 w-4 h-4 text-primary' />
+              <FaStar className='animate-custom-4 absolute -end-12 bottom-20 w-3 h-3 text-primary' />
+              <FaStar className='animate-custom-5 absolute end-12 bottom-8 w-2 h-2 text-primary' />
+              <FaStar className='animate-custom-3 absolute end-0 top-16 w-3 h-3 text-primary' />
+              {/* <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Seberapa penting memiliki website di era digital ini?</h3> */}
+              <h3 className='mb-8 text-zinc-700 dark:text-zinc-200 leading-tight text-2xl md:text-3xl lg:text-4xl font-medium'>Mengapa</h3>
+              <p className='mb-8 italic'>&quot; Dalam dunia digital, memiliki website itu penting. Website adalah wajah bisnis online Anda yang memberi kemudahan akses dan membangun kepercayaan. Dengan website, bisnis Anda dapat tampil lebih profesional, meningkatkan visibilitas, dan memudahkan pelanggan untuk menemukan Anda. &quot;</p>
+            </div>
+          </div>
+
+
+
+          {/* <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 lg:mt-24'>
             <div className='relative border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50 p-6'>
               <div>
                 <h6 className='mb-4 text-zinc-700 dark:text-white font-semibold'><FaXmark className='inline h-5 w-5 me-1 mb-0.5 text-red-500' /> Tanpa adanya website</h6>
@@ -224,9 +268,9 @@ function Page() {
                   </li>
                 </ul>
               </div>
-              <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
-              <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
-              <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+              <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-primary' />
+              <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-primary' />
+              <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-primary' />
             </div>
             <div className='relative border border-pink-400 dark:border-pink-900 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-pink-200 dark:to-pink-950 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50 p-6'>
               <div>
@@ -250,22 +294,22 @@ function Page() {
                   </li>
                 </ul>
               </div>
-              <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-pink-500' />
-              <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-pink-500' />
-              <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-pink-500' />
+              <FaStar className='animate-custom-3 absolute end-8 top-2 w-4 h-4 text-primary' />
+              <FaStar className='animate-custom-4 absolute end-4 top-7 w-3 h-3 text-primary' />
+              <FaStar className='animate-custom-5 absolute end-2 top-12 w-2 h-2 text-primary' />
             </div>
-          </div>
+          </div> */}
         </section>
 
-        <section className='relative xl:bg-[url(/image/border-all-2.svg)] bg-contain bg-center bg-no-repeat mt-8 lg:mt-24 p-8 xl:py-24'>
+        {/* <section className='relative xl:bg-[url(/image/border-all-2.svg)] bg-contain bg-center bg-no-repeat mt-8 lg:mt-24 p-8 xl:py-24'>
           <div className='absolute inset-0 mx-auto -z-10 max-w-3xl'>
-            <FaStar className='animate-custom-3 absolute start-0 top-24 w-4 h-4 text-pink-500' />
-            <FaStar className='animate-custom-4 absolute start-6 top-32 w-3 h-3 text-pink-500' />
-            <FaStar className='animate-custom-5 absolute start-0 top-48 w-2 h-2 text-pink-500' />
-            <FaStar className='animate-custom-3 absolute -end-12 top-1/2 w-4 h-4 text-pink-500' />
-            <FaStar className='animate-custom-4 absolute -end-16 bottom-48 w-5 h-5 text-pink-500' />
-            <FaStar className='animate-custom-5 absolute -end-4 bottom-1/3 w-2 h-2 text-pink-500' />
-            <FaStar className='animate-custom-3 absolute end-1/4 top-1/4 w-3 h-3 text-pink-500' />
+            <FaStar className='animate-custom-3 absolute start-0 top-24 w-4 h-4 text-primary' />
+            <FaStar className='animate-custom-4 absolute start-6 top-32 w-3 h-3 text-primary' />
+            <FaStar className='animate-custom-5 absolute start-0 top-48 w-2 h-2 text-primary' />
+            <FaStar className='animate-custom-3 absolute -end-12 top-1/2 w-4 h-4 text-primary' />
+            <FaStar className='animate-custom-4 absolute -end-16 bottom-48 w-5 h-5 text-primary' />
+            <FaStar className='animate-custom-5 absolute -end-4 bottom-1/3 w-2 h-2 text-primary' />
+            <FaStar className='animate-custom-3 absolute end-1/4 top-1/4 w-3 h-3 text-primary' />
           </div>
             <div className='flex place-content-center'>
               <div className='max-w-4xl'>
@@ -294,18 +338,18 @@ function Page() {
                 </ul>
               </div>
             </div>
-        </section>
+        </section> */}
 
-        <div ref={pricelistRef}>
+        {/* <div ref={pricelistRef}>
           <PriceList/>
-        </div>
+        </div> */}
       </Container>
       <Container>
         
 
 
         
-        <div className='mt-32'>
+        {/* <div className='mt-32'>
           <div className='relative flex justify-center'>
             <Image src="/image/tedung.svg" alt='tedung.svg' width={256} height={256} className='hidden lg:block absolute -z-10 top-12 end-0 xl:end-12 2xl:end-32 rotate-[16deg]'/>
             <Image src="/image/grass-1.svg" alt='grass-1.svg' width={256} height={256} className='hidden lg:block absolute -z-10 bottom-64 end-12 xl:end-24 2xl:end-44'/>
@@ -347,7 +391,7 @@ function Page() {
               </ol>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <br />
 

@@ -20,7 +20,12 @@ body {
 }
 
 .text-primary {
-  @apply text-pink-500;
+  /* @apply text-pink-500; */
+  @apply text-yellow-200;
+}
+
+.backdrop-shadow-custom {
+  filter: drop-shadow(0rem 0rem 5rem #fddf4735);
 }
 
 /* .animate-custom-1 {
