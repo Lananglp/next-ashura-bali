@@ -14,7 +14,7 @@ import ButtonWhatsapp from '@/components/ButtonWhatsapp';
 
 const Product = ({type, title, description, example, contactURL }) => {
   return (
-    <div className='basis-full sm:basis-6/12 md:basis-5/12 xl:basis-3/12 group/pelayanan relative grid grid-cols-1 border border-yellow-400 dark:border-yellow-200/50 bg-gradient-to-b from-zinc-200 dark:from-zinc-900 to-yellow-200 dark:to-yellow-300/15 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
+    <div className='basis-full sm:basis-6/12 md:basis-5/12 xl:basis-3/12 group/pelayanan relative grid grid-cols-1 border border-yellow-400 dark:border-yellow-200/50 bg-gradient-to-b from-zinc-200 dark:from-transparent to-yellow-200 dark:to-yellow-300/15 from-[60%] to-[100%] rounded-lg shadow-xl shadow-zinc-950/10 dark:shadow-zinc-950/50'>
       <div className='absolute -start-2 -top-1 -rotate-3 px-4 py-0.5 bg-black rounded-lg text-black font-medium text-sm shadow-lg shadow-black/15'>
         <div className='absolute inset-0 -z-10 bg-gradient-to-r from-yellow-200 to-yellow-400/50 rounded-lg'/>
         {type}
@@ -66,6 +66,7 @@ function Page() {
       <Navbar refs={refs}/>
 
       <Container overflow="hidden">
+        <Image src='/image/index-background.svg' alt='decoration-1.svg' width={0} height={0} className='fixed inset-0 -z-10 h-full w-full opacity-25'/>
         {/* <section className="relative lg:bg-[url(/image/border-t-l-r.svg)] bg-cover lg:mt-12"> */}
         <section className="relative lg:mt-12">
           <Image src='/image/flower-l-3.svg' alt='decoration-1.svg' width={224} height={0} className='absolute start-0 top-0'/>
@@ -201,27 +202,47 @@ function Page() {
             <div className='md:flex md:flex-row items-center'>
               <div className='basis-7/12 py-52'>
                 <div className='relative py-32'>
+                  <Image src='/image/decoration-4.svg' alt='decoration-4.svg' width={800} height={0} className='absolute start-1/2 -translate-x-1/2 bottom-0 opacity-50'/>
                   <Image src='/image/undangan/mobile-2-undangan.png' alt='dekstop-undangan.png' width={200} height={120} className='absolute start-[40%] bottom-0 backdrop-shadow-custom'/>
                   <Image src='/image/undangan/mobile-1-undangan.png' alt='dekstop-undangan.png' width={200} height={120} className='absolute start-[14%] -bottom-[32%]'/>
                   <Image src='/image/undangan/mobile-3-undangan.png' alt='dekstop-undangan.png' width={200} height={120} className='absolute end-[10%] -bottom-[64%]'/>
                 </div>
               </div>
-              <div className='basis-5/12 text-start pe-32'>
-                <h3 className='mb-4 text-4xl font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                <p className='text-lg leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo eum porro facilis sit. Ea commodi inventore fugiat labore error. Ipsam recusandae magnam quos eos excepturi autem optio ea ab.</p>
+              <div className='relative basis-5/12 text-start pe-32'>
+                <FaStar className='animate-custom-3 absolute -start-12 top-0 w-4 h-4 text-primary' />
+                <FaStar className='animate-custom-4 absolute start-24 -bottom-12 w-3 h-3 text-primary' />
+                <FaStar className='animate-custom-5 absolute -start-6 top-1/4 w-2 h-2 text-primary' />
+                <FaStar className='animate-custom-4 absolute end-24 top-8 w-5 h-5 text-primary' />
+                <FaStar className='animate-custom-5 absolute end-6 bottom-8 w-2 h-2 text-primary' />
+                <FaStar className='animate-custom-3 absolute end-8 md:end-1/4 -top-8 w-3 h-3 text-primary' />
+                <div className='bg-gradient-radial from-yellow-300/30 dark:from-yellow-300/10 from-[0%] to-transparent to-[70%] absolute end-0 -top-40 w-96 h-96' />
+                <h3 className='mb-4 text-4xl font-medium text-white'>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo eum porro facilis sit. Ea commodi inventore fugiat labore error. Ipsam recusandae magnam quos eos excepturi autem optio ea ab.</p>
+                <Image src='/image/flower-2.svg' alt='decoration-1.svg' width={256} height={0} className='absolute -z-10 -rotate-[120deg] -start-12 -top-44'/>
+                <Image src='/image/flower-2.svg' alt='decoration-1.svg' width={256} height={0} className='absolute -z-10 rotate-[60deg] end-12 -bottom-40'/>
               </div>
             </div>
 
             <div className='md:flex md:flex-row-reverse items-center'>
               <div className='basis-7/12 pb-28'>
                 <div className='relative flex justify-end pt-12 pb-32'>
+                  <Image src='/image/decoration-4.svg' alt='decoration-4.svg' width={800} height={0} className='absolute start-1/2 -translate-x-1/2 -bottom-4 opacity-50'/>
                   <Image src='/image/undangan/dekstop-undangan.png' alt='dekstop-undangan.png' width={700} height={400} className='backdrop-shadow-custom'/>
                   <Image src='/image/undangan/tablet-undangan.png' alt='dekstop-undangan.png' width={300} height={200} className='absolute start-[10%] top-[30%]'/>
                 </div>
               </div>
-              <div className='basis-5/12 text-end ps-32'>
-                <h3 className='mb-4 text-4xl font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                <p className='text-lg leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo eum porro facilis sit. Ea commodi inventore fugiat labore error. Ipsam recusandae magnam quos eos excepturi autem optio ea ab.</p>
+              <div className='relative basis-5/12 text-end ps-32'>
+                <FaStar className='animate-custom-3 absolute -end-12 top-0 w-4 h-4 text-primary' />
+                <FaStar className='animate-custom-4 absolute end-24 -bottom-12 w-3 h-3 text-primary' />
+                <FaStar className='animate-custom-5 absolute -end-6 top-1/4 w-2 h-2 text-primary' />
+                <FaStar className='animate-custom-4 absolute start-24 top-8 w-5 h-5 text-primary' />
+                <FaStar className='animate-custom-5 absolute start-6 bottom-8 w-2 h-2 text-primary' />
+                <FaStar className='animate-custom-3 absolute start-8 md:end-1/4 -top-8 w-3 h-3 text-primary' />
+                <div className='bg-gradient-radial from-yellow-300/30 dark:from-yellow-300/10 from-[0%] to-transparent to-[70%] absolute start-0 -top-40 w-96 h-96' />
+                  <h3 className='mb-4 text-4xl font-medium text-white'>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+                  <p className='text-lg leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo eum porro facilis sit. Ea commodi inventore fugiat labore error. Ipsam recusandae magnam quos eos excepturi autem optio ea ab.</p>
+                  <Image src='/image/flower-2.svg' alt='decoration-1.svg' width={256} height={0} className='absolute -z-10 -rotate-[120deg] -end-12 -top-44'/>
+                  <Image src='/image/flower-2.svg' alt='decoration-1.svg' width={256} height={0} className='absolute -z-10 rotate-[60deg] start-12 -bottom-40'/>
               </div>
             </div>
           </div>
